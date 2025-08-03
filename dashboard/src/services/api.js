@@ -21,28 +21,38 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   (config) => {
-    console.log("config use", config);
-    console.log("config use 1", config.role, TokenService.getRole());
+    // console.log("config use", config);
+    // console.log("config use 1", config.role, TokenService.getRole());
     const token = TokenService.getLocalAccessToken();
     // console.log("access token", token);
     if (token) {
       config.headers["Authorization"] = 'Bearer ' + token;  // for Spring Boot back-end
       //config.headers["x-access-token"] = token; // for Node.js Express back-end
     }
+    const startTime = performance.now();
+    config.headers['x-start-time'] = startTime; // optional header (for debug/logging)
+    config._startTime = startTime; // private field for tracking
     return config;
   },
   (error) => {
+    console.log("123qwe1", error);
     return Promise.reject(error);
   }
 );
 
 instance.interceptors.response.use(
-  (res) => {
-    return res;
+  (response) => {
+    const start = response.config._startTime;
+    if (start) {
+      const duration = performance.now() - start;
+      console.log(`[${response.config.url}] ✅ Request took ${duration.toFixed(2)} ms`);
+    }
+    return response;
   },
   async (err) => {
     const originalConfig = err.config;
     console.log("err.config", err.config);
+    console.log("err.config 1", err.response);
     // if (originalConfig.url !== "rest/v1/authenticate" && err.response) {
     if (originalConfig.url !== "login/beta/authenticate" && err.response) {
       // Access Token was expired
@@ -63,13 +73,13 @@ instance.interceptors.response.use(
 
           const { accessToken } = rs.data;
           TokenService.updateLocalAccessToken(accessToken);
-          
-          TokenService.removeUser();
-          TokenService.setUser(rs.data);
-          console.log("access token", accessToken);
+          // TokenService.removeUser();
+          // TokenService.setUser(rs.data);
+          // console.log("access token", accessToken);
 
           return instance(originalConfig);
         } catch (_error) {
+          console.log("123qwe2", _error);
           return Promise.reject(_error);
         }
       }

@@ -1,0 +1,203 @@
+/* ===== Additional Theme Variables for Dynamic Table ===== */
+:root {
+  /* Existing variables from your theme file... */
+  --color-dynamic-container-bg: #ffffff;
+  --color-dynamic-table-bg: #ffffff;
+  --color-dynamic-header-bg: #f5f5f5;
+  --color-dynamic-header-text: #36454F;
+  --color-dynamic-text: #555;
+  --color-dynamic-border: #ccc;
+  --color-dynamic-row-even: #f8f8f8;
+  --color-dynamic-row-hover: #e8e8e8;
+  --color-dynamic-row-hover-text: #111;
+  --color-dynamic-pagination-bg: #ffffff;
+  --color-dynamic-pagination-btn-bg: #fff;
+  --color-dynamic-pagination-btn-text: #007bff;
+  --color-dynamic-pagination-btn-active: #007bff;
+  --color-dynamic-pagination-btn-hover: #e0e0e0;
+  --color-dynamic-link: #007bff;
+  --color-dynamic-profit: #23c6c7;
+  --color-dynamic-loss: #ed5564;
+  --shadow-dynamic-container: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  /* Dark theme variations */
+  --color-dynamic-container-bg: #1a1f35;
+  --color-dynamic-table-bg: #1a1f35;
+  --color-dynamic-header-bg: #2a3441;
+  --color-dynamic-header-text: #cbd5e1;
+  --color-dynamic-text: #94a3b8;
+  --color-dynamic-border: #374151;
+  --color-dynamic-row-even: #252b47;
+  --color-dynamic-row-hover: #374151;
+  --color-dynamic-row-hover-text: #f1f5f9;
+  --color-dynamic-pagination-bg: #1a1f35;
+  --color-dynamic-pagination-btn-bg: #2a3441;
+  --color-dynamic-pagination-btn-text: #60a5fa;
+  --color-dynamic-pagination-btn-active: #2563eb;
+  --color-dynamic-pagination-btn-hover: #374151;
+  --color-dynamic-link: #60a5fa;
+  --color-dynamic-profit: #10b981;
+  --color-dynamic-loss: #ef4444;
+  --shadow-dynamic-container: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* src/DynamicTable.css */
+
+.dynamic-table-container {
+    width: 100%;
+    max-height: 600px;
+    overflow: auto;
+    border-radius: 0px;
+    box-shadow: var(--shadow-dynamic-container);
+    margin: 16px 0;
+    background-color: var(--color-dynamic-container-bg);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 0px;
+    padding-bottom: 40px;
+    font-family: Tahoma, sans-serif;
+}
+
+.dynamic-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 600px;
+    background-color: var(--color-dynamic-table-bg);
+}
+
+.dynamic-table th,
+.dynamic-table td {
+    border: 1px solid var(--color-dynamic-border);
+    padding: 12px;
+    text-align: left;
+    line-height: 1.2;
+}
+
+.dynamic-table th {
+    background-color: var(--color-dynamic-header-bg);
+    color: var(--color-dynamic-header-text);
+    font-weight: bold;
+    height: 30px;
+}
+
+.dynamic-table tr {
+    height: 28px;
+    background-color: var(--color-dynamic-table-bg);
+}
+
+.dynamic-table tr:nth-of-type(even) {
+    background-color: var(--color-dynamic-row-even);
+}
+
+.dynamic-table tr:hover {
+    background-color: var(--color-dynamic-row-hover);
+    color: var(--color-dynamic-row-hover-text);
+}
+
+.dynamic-table td {
+    color: var(--color-dynamic-text);
+}
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    padding: 5px;
+    background: var(--color-dynamic-pagination-bg);
+}
+
+.pagination-button {
+    border: 1px solid var(--color-dynamic-border);
+    border-radius: 4px;
+    background-color: var(--color-dynamic-pagination-btn-bg);
+    color: var(--color-dynamic-pagination-btn-text);
+    padding: 5px 10px;
+    margin: 0 2px;
+    cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.pagination-button.active {
+    background-color: var(--color-dynamic-pagination-btn-active);
+    color: #fff;
+    border-color: var(--color-dynamic-pagination-btn-active);
+}
+
+.pagination-button:hover {
+    background-color: var(--color-dynamic-pagination-btn-hover);
+}
+
+.pagination-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.pagination-ellipsis {
+    border: none;
+    background: none;
+    color: var(--color-dynamic-pagination-btn-text);
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+.td-match-link {
+    font-size: 14px;
+    color: var(--color-dynamic-link);
+    text-decoration: none;
+}
+
+.td-match-link:hover {
+    text-decoration: underline;
+}
+
+.label-profit {
+    color: var(--color-dynamic-profit);
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'Consolas', monospace;
+}
+
+.label-loss {
+    color: var(--color-dynamic-loss);
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'Consolas', monospace;
+}
+
+/* Media query for smaller screens */
+@media (orientation: portrait) {
+    .dynamic-table-container {
+        max-height: 500px;
+        overflow: auto;
+    }
+
+    .dynamic-table {
+        min-width: 100vw;
+        font-size: 14px; /* Increase font size for mobile */
+    }
+
+    .dynamic-table th,
+    .dynamic-table td {
+        padding: 6px; /* Increase padding for mobile */
+    }
+
+    .pagination {
+        position: static;
+        overflow-x: auto;
+    }
+
+    .pagination-button {
+        font-size: 14px; /* Increase pagination button font size for mobile */
+        padding: 5px 8px; /* Increase padding for pagination buttons */
+    }
+}

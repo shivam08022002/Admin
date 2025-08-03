@@ -30,18 +30,13 @@ import {
   NOTIFY_ALL_USERS_FAIL,
   NOTIFY_USER_SUCCESS,
   NOTIFY_USER_FAIL,
-  UPDATE_BALANCE_SUCCESS,
-  UPDATE_BALANCE_FAIL,
   START_GAME_SUCCESS,
   START_GAME_FAIL,
   UPDATE_GAME_STATUS_SUCCESS,
-  UPDATE_GAME_STATUS_FAIL,
   MAKE_TRANSACTION_SUCCESS,
   MAKE_TRANSACTION_FAIL,
   UPDATE_GLOBAL_PROPERTY_SUCCESS,
   UPDATE_GLOBAL_PROPERTY_FAIL,
-  BLOCK_MARKET_SUCCESS,
-  BLOCK_MARKET_FAIL,
 } from "./types";
 
 import AuthServices from "../services/auth-services";
@@ -94,62 +89,6 @@ export const registerReferred = (name, email, userName, agentCode, password, otp
 
   )
 }
-export const placeCricBet = (marketId, betCandidate, amount, betType, rate, sessionYesValue, sessionNoValue) => (dispatch) => {
-  const role = "user";
-  return AuthServices.placeCricBet(marketId, betCandidate, amount, betType, rate, sessionYesValue, sessionNoValue).then(
-    (response) => {
-      console.log("place bet 1", response);
-
-      return response;
-    },
-    (error) => {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message &&
-          error.response.headers) ||
-        error.message ||
-        error.toString();
-        
-      dispatch({
-        type: SET_MESSAGE,
-        payload: error.response.data,
-        role: role
-      });
-
-      return error.response;
-    }
-  );
-};
-
-export const savePreBetPreferencesOnServer = (pb1, pb2, pb3, pb4, pb5, pb6, pb7, pb8) => (dispatch) => {
-  const role = "user";
-  return AuthServices.savePreBetPreferencesOnServer(pb1, pb2, pb3, pb4, pb5, pb6, pb7, pb8).then(
-    (response) => {
-      console.log("pre bet 1", response);
-
-      return response;
-    },
-    (error) => {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message &&
-          error.response.headers) ||
-        error.message ||
-        error.toString();
-
-      dispatch({
-        type: SET_MESSAGE,
-        payload: error.response.data,
-        role: role
-      });
-
-      return error.response;
-    }
-  );
-};
-
 export const deposit = (agentName, balance, password, role) => (dispatch) => {
   return AuthServices.deposit(agentName, balance, password, role).then(
     (response) => {
@@ -246,8 +185,8 @@ export const withdraw = (agentName, balance, password, role) => (dispatch) => {
   );
 };
 
-export const register = (firstName, lastName, password, registerType, fixLimit, agentMatchShare, agentMatchCommission, agentSessionCommission, role) => (dispatch) => {
-  return AuthServices.register(firstName, lastName, password, registerType, fixLimit, agentMatchShare, agentMatchCommission, agentSessionCommission, role).then(
+export const register = (firstName, lastName, password, registerType, fixLimit, agentMatchShare, agentMatchCommission, agentSessionCommission, iCasinoEnabled, iCasinoShare, role) => (dispatch) => {
+  return AuthServices.register(firstName, lastName, password, registerType, fixLimit, agentMatchShare, agentMatchCommission, agentSessionCommission, iCasinoEnabled, iCasinoShare, role).then(
     (response) => {
       dispatch({
         type: REGISTER_SUCCESS,
@@ -793,9 +732,14 @@ export const makeTransaction = (userId, note, type, amount) => (dispatch) => {
         role: role
       });
 
+      // dispatch({
+      //   type: SET_MESSAGE,
+      //   payload: response.data.status,
+      //   role: role
+      // });
+
       return response;
     },
-    
     (error) => {
       const message =
         (error.response &&

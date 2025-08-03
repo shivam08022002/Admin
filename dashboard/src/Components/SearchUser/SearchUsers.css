@@ -1,0 +1,198 @@
+/* ===== Additional Theme Variables for Layout & Table Title ===== */
+:root {
+  /* Existing variables from your theme file... */
+  --color-layout-bg: #ffffff;
+  --color-title-bg-start: #f8f9fa;
+  --color-title-bg-end: #e9ecef;
+  --color-title-text: #495057;
+  --color-title-border: #dee2e6;
+  --color-title-accent-start: #3182ce;
+  --color-title-accent-end: #2b6cb0;
+  --color-title-hover-start: #e9ecef;
+  --color-title-hover-end: #dee2e6;
+  --color-title-dark-bg-start: #4a5568;
+  --color-title-dark-bg-end: #2d3748;
+  --color-title-dark-text: #ffffff;
+  --color-title-success-start: #38a169;
+  --color-title-success-end: #2f855a;
+  --color-title-warning-start: #d69e2e;
+  --color-title-warning-end: #b7791f;
+  --color-title-danger-start: #e53e3e;
+  --color-title-danger-end: #c53030;
+  --shadow-title: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-title-hover: 0 2px 5px rgba(0, 0, 0, 0.12);
+  --shadow-title-dark: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  /* Dark theme variations */
+  --color-layout-bg: #101624;
+  --color-title-bg-start: #2a3441;
+  --color-title-bg-end: #1e2937;
+  --color-title-text: #e2e8f0;
+  --color-title-border: #374151;
+  --color-title-accent-start: #60a5fa;
+  --color-title-accent-end: #3b82f6;
+  --color-title-hover-start: #374151;
+  --color-title-hover-end: #2a3441;
+  --color-title-dark-bg-start: #1e293b;
+  --color-title-dark-bg-end: #0f172a;
+  --color-title-dark-text: #f1f5f9;
+  --color-title-success-start: #10b981;
+  --color-title-success-end: #059669;
+  --color-title-warning-start: #f59e0b;
+  --color-title-warning-end: #d97706;
+  --color-title-danger-start: #ef4444;
+  --color-title-danger-end: #dc2626;
+  --shadow-title: 0 1px 3px rgba(0, 0, 0, 0.15);
+  --shadow-title-hover: 0 2px 5px rgba(0, 0, 0, 0.2);
+  --shadow-title-dark: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.user-info-root {
+    display: flex;
+    flex-direction: row;
+    background: var(--color-layout-bg);
+    padding-top: 20px;
+}
+
+.hierarchy-container {
+    width: 30%;
+    margin-bottom: 20px;
+    margin-right: 2px;
+}
+
+.user-details-container {
+    width: 70%;
+    margin-bottom: 20px;
+    margin-left: 2px;
+}
+
+@media screen and (max-width: 768px) {
+    .user-info-root {
+        flex-direction: column;
+    }
+
+    .hierarchy-container {
+        width: 100%;
+        margin-right: 0px;
+    }
+
+    .user-details-container {
+        width: 100%;
+        margin-left: 0px;
+    }
+}
+
+/* Table Title Enhanced Styles */
+.table-title {
+    background: linear-gradient(135deg, var(--color-title-bg-start) 0%, var(--color-title-bg-end) 100%);
+    color: var(--color-title-text);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    width: 100%;
+    height: 46px;
+    margin-left: 0px;
+    margin-bottom: 20px;
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+    box-shadow: var(--shadow-title);
+    border: 1px solid var(--color-title-border);
+    border-bottom: none;
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Subtle accent line */
+.table-title::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-title-accent-start) 0%, var(--color-title-accent-end) 100%);
+}
+
+/* Icon support if needed */
+.table-title-icon {
+    margin-right: 8px;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* Alternative dark version */
+.table-title.dark {
+    background: linear-gradient(135deg, var(--color-title-dark-bg-start) 0%, var(--color-title-dark-bg-end) 100%);
+    color: var(--color-title-dark-text);
+    border: none;
+    box-shadow: var(--shadow-title-dark);
+}
+
+.table-title.dark::before {
+    background: linear-gradient(90deg, var(--color-title-accent-start) 0%, var(--color-title-accent-end) 100%);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .table-title {
+        font-size: 13px;
+        height: 42px;
+        padding-left: 12px;
+        border-radius: 6px 6px 0 0;
+        letter-spacing: 0.3px;
+    }
+    
+    .table-title-icon {
+        font-size: 14px;
+        margin-right: 6px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .table-title {
+        font-size: 12px !important;
+        height: 35px !important;
+        padding-left: 10px !important;
+        border-radius: 4px 4px 0 0 !important;
+    }
+    
+    .table-title-icon {
+        font-size: 13px !important;
+        margin-right: 5px !important;
+    }
+}
+
+/* Hover effect for interactive titles */
+.table-title.interactive {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.table-title.interactive:hover {
+    background: linear-gradient(135deg, var(--color-title-hover-start) 0%, var(--color-title-hover-end) 100%);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-title-hover);
+}
+
+/* Status indicator variants */
+.table-title.success::before {
+    background: linear-gradient(90deg, var(--color-title-success-start) 0%, var(--color-title-success-end) 100%);
+}
+
+.table-title.warning::before {
+    background: linear-gradient(90deg, var(--color-title-warning-start) 0%, var(--color-title-warning-end) 100%);
+}
+
+.table-title.danger::before {
+    background: linear-gradient(90deg, var(--color-title-danger-start) 0%, var(--color-title-danger-end) 100%);
+}
+
+.table-title.info::before {
+    background: linear-gradient(90deg, var(--color-title-accent-start) 0%, var(--color-title-accent-end) 100%);
+}

@@ -1,0 +1,326 @@
+.date-range-form-container {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.date-range-picker-container {
+    padding-bottom: 0px;
+    font-family: Arial, sans-serif;
+    margin-right: 10px;
+    /* position: relative; */
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #3963af;
+}
+
+.dropdown {
+    position: relative;
+    /* display: inline-block; */
+    margin-top: 2px;
+}
+
+.dropdown-button {
+    padding: 6px 8px;
+    border: none;
+    border-radius: 0px;
+    background-color: white;
+    color: #3963af;
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid #3963af;
+    display: flex;
+    /* Align icons and text horizontally */
+    align-items: center;
+    /* Vertically center the icons and text */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+    /* position: fixed;
+    z-index: 1000; */
+}
+
+.dropdown-button i {
+    margin-right: 8px;
+    /* Space between icon and text */
+}
+
+.dropdown-button .dropdown-icon {
+    margin-left: auto;
+    /* Push dropdown icon to the end */
+    transition: transform 0.3s ease;
+    /* Smooth rotation */
+}
+
+.dropdown-button .dropdown-icon.open {
+    transform: rotate(180deg);
+    /* Rotate icon when dropdown is open */
+}
+
+.dropdown-button:hover {
+    background-color: white;
+}
+
+.dropdown-content {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #3963af;
+    border-radius: 2px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 10px;
+    /* z-index: 1000;
+    width: 530px; */
+    /* Increased width */
+    box-sizing: border-box;
+}
+
+.presets {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 0px;
+    background: white;
+    padding: 5px;
+    padding-left: 10px;
+    padding-bottom: 0px;
+    border-radius: 5px;
+}
+
+.presets button {
+    padding: 2px 7px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: #3963af;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px solid #3963af;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.presets button:hover {
+    background-color: #f0f0f0;
+}
+
+.date-pickers {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.date-picker-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.date-picker-toggle {
+    width: 100%;
+    padding: 0px;
+    /* padding-left: 10px; */
+    /* border: 1px solid #ddd; */
+    border-radius: 2px;
+    background-color: white;
+    color: #3963af;
+    cursor: pointer;
+    text-align: left;
+    box-sizing: border-box;
+    font-size: 12px;
+    /* Ensure padding and border are included in width */
+}
+
+.date-picker-toggle.focused {
+    border-color: #3963af;
+    background-color: #f0f0f0;
+}
+
+.react-datepicker-inline {
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid #3963af;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    /* Keep the date picker from pushing other elements */
+    top: 100%;
+    left: 0;
+    z-index: 1001;
+    /* Ensure it is above other content */
+}
+
+.react-datepicker__triangle {
+    display: none;
+}
+
+.react-datepicker__header {
+    background-color: white;
+    color: #3963af;
+    border-bottom: 1px solid #ddd;
+    padding: 0px;
+}
+
+.react-datepicker__month {
+    background-color: white;
+    padding: 0px;
+}
+
+.react-datepicker__day {
+    border-radius: 5px;
+    padding: 0px;
+    margin-top: 1px;
+}
+
+.react-datepicker__day--selected {
+    background-color: #3963af;
+    color: white;
+}
+
+.react-datepicker__day--disabled {
+    color: #ddd;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 0px;
+}
+
+.action-button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.clear {
+    background-color: white;
+    color: #3963af;
+    border: 1px solid #3963af;
+}
+
+.clear:hover {
+    background-color: #f0f0f0;
+}
+
+.apply {
+    background-color: #3963af;
+    color: white;
+    border: 1px solid #3963af;
+}
+
+.apply:hover {
+    background-color: #1a3a6e;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-left: 15px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.search-button-wrapper {
+    margin-top: 2px !important;
+}
+
+@media (max-width: 600px) {
+
+    .date-range-form-container {
+        padding-top: 0px;
+        margin-top: 0px;
+    }
+
+    .date-picker-wrapper {
+        margin-bottom: 10px;
+    }
+
+    .dropdown-button {
+        padding: 6px 8px;
+        border: none;
+        /* border-radius: 5px; */
+        background-color: white;
+        color: #3963af;
+        cursor: pointer;
+        font-size: 14px;
+        border: 1px solid #3963af;
+        display: flex;
+        /* Align icons and text horizontally */
+        align-items: center;
+        /* Vertically center the icons and text */
+        white-space: nowrap;
+        /* Prevent text wrapping */
+        /* position: fixed;
+        z-index: 1000; */
+    }
+
+    .presets {
+        width: 75%;
+    }
+}
+
+@media (max-width: 480px) {
+    .date-range-form-container {
+        /* flex-direction: row;
+      align-items: flex-start; */
+        margin-top: 0px;
+    }
+
+    .date-range-picker-container {
+        width: 100%;
+    }
+
+    .search-button-wrapper {
+        margin-left: 0 !important;
+        margin-top: 0px !important;
+        width: 100%;
+        text-align: right;
+        /* Align to the left */
+    }
+
+    .search-button-wrapper .cric-board-buttons {
+        width: 80px;
+        /* Remove full width */
+    }
+}

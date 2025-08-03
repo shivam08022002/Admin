@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme, useMediaQuery } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../Sidebar/Sidebar';
@@ -19,6 +19,10 @@ const Layout = ({ children, darkMode, setDarkMode }) => {
       setSidebarCollapsed((prev) => !prev);
     }
   };
+      
+    useEffect(() => {
+      document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+    }, [darkMode]);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);

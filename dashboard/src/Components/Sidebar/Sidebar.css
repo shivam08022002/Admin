@@ -36,7 +36,6 @@
   overflow-y: auto;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-  
 }
 
 .sidebar::-webkit-scrollbar {
@@ -132,6 +131,7 @@
 
 .submenu {
   background-color: #39455D;
+  box-shadow: inset 0 1px 8px rgba(0, 0, 0, 0.13);
 }
 
 .submenu-item {
@@ -145,7 +145,7 @@
   font-size: 0.875rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
-    border-left: 4px solid #04A9F5 !important;
+  border-left: 4px solid #04A9F5 !important;
 
 }
 

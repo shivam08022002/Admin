@@ -18,17 +18,10 @@ class AuthServices {
   }
 
   logout(role) {
-    try {
-      TokenService.removeUser();
-      // Clear any other stored data/state if needed
-      localStorage.clear(); // Optional: clear all localStorage
-      sessionStorage.clear(); // Optional: clear all sessionStorage
-    } catch (error) {
-      console.error("Logout error:", error);
-    }
+    TokenService.removeUser();
   }
 
-  register(firstName, lastName, password, entityType, balance, share, matchCommission, sessionCommission, role) {
+  register(firstName, lastName, password, entityType, balance, share, matchCommission, sessionCommission, iCasinoEnabled, iCasinoShare, role) {
     console.log("register agent 2");
     let tailURL = "beta/addSubEntity";
     console.log("add", tailURL);
@@ -40,7 +33,9 @@ class AuthServices {
       balance,
       share,
       matchCommission,
-      sessionCommission
+      sessionCommission,
+      iCasinoEnabled,
+      iCasinoShare
     }, { role }).then(response => {
       return response;
     });

@@ -20,7 +20,7 @@ import {
 import TokenService from "../services/token-service";
 
 let user = TokenService.getUser();
-console.log("auth", user)
+// console.log("auth", user)
 
 const initialState = user
   ? { isLoggedIn: true, user }
@@ -28,11 +28,11 @@ const initialState = user
 
 export default function (state = initialState, action) {
   const { type, payload, role } = action;
-  console.log("auth1", role, type, payload)
+  // console.log("auth1", role, type, payload)
   let user = initialState;
   if (role) {
     user = TokenService.getUser();
-    console.log("auth", user)
+    // console.log("auth", user)
 
     const initialState = user
       ? { isLoggedIn: true, user }
@@ -70,7 +70,7 @@ export default function (state = initialState, action) {
     case REGISTER_SUCCESS:
       return {
         ...state,
-        isLoggedIn: true,
+        isLoggedIn: false,
         user: user
       };
     case REGISTER_FAIL:
@@ -106,7 +106,7 @@ export default function (state = initialState, action) {
       console.log("case cp 1 success", payload.user)
       return {
         ...state,
-        isLoggedIn: true,
+        isLoggedIn: false,
         user: payload.user.data,
       };
     case CHANGE_PASSWORD_FAIL:
@@ -119,12 +119,27 @@ export default function (state = initialState, action) {
       };
     case SET_MESSAGE:
     case MAKE_TRANSACTION_SUCCESS:
+    case MAKE_TRANSACTION_FAIL:
     case UPDATE_GLOBAL_PROPERTY_SUCCESS:
-      return {
-        ...state,
-        isLoggedIn: true,
-        user: user,
-      };
+      if (type === MAKE_TRANSACTION_FAIL) {
+        if (payload.status === 400) {
+          return {
+            ...state,
+            isLoggedIn: false,
+            user: user,
+          };
+        } else {
+          return {
+            ...state
+          }
+        }
+      } else {
+        return {
+          ...state,
+          isLoggedIn: false,
+          user: user,
+        };
+      }
     // case CHANGE_PASSWORD_FAIL:
     //   return {
     //     ...state,

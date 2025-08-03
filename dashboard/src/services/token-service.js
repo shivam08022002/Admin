@@ -3,7 +3,6 @@ class TokenService {
     const user = JSON.parse(localStorage.getItem("master"));
     return user?.userName;
   }
-
   getLocalRefreshToken() {
     const user = JSON.parse(localStorage.getItem("master"));
     return user?.refreshToken;

@@ -1,0 +1,137 @@
+/* ===== Additional Theme Variables for Org Chart ===== */
+:root {
+  /* Existing variables from your theme file... */
+  --color-node-bg: #3f4d67;
+  --color-node-text: #ffffff;
+  --color-node-icon-bg: #ffffff;
+  --color-node-icon-text: #2c3e50;
+  --color-node-description: #b8c5d1;
+  --color-arrow: #4a90e2;
+  --shadow-node: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-icon: 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme='dark'] {
+  /* Dark theme variations */
+  --color-node-bg: #2a3441;
+  --color-node-text: #f1f5f9;
+  --color-node-icon-bg: #e2e8f0;
+  --color-node-icon-text: #1e293b;
+  --color-node-description: #94a3b8;
+  --color-arrow: #60a5fa;
+  --shadow-node: 0 4px 8px rgba(0, 0, 0, 0.25);
+  --shadow-icon: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.org-chart {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.org-chart-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.node-content {
+  display: flex;
+  align-items: center;
+  padding: 5px 15px 5px 8px;
+  border-radius: 30px;
+  box-shadow: var(--shadow-node);
+  width: 280px;
+  background-color: var(--color-node-bg);
+  color: var(--color-node-text);
+}
+
+.node-icon {
+  font-size: 0.95rem;
+  margin-right: 8px;
+  background-color: var(--color-node-icon-bg);
+  box-shadow: var(--shadow-icon);
+  padding: 2px;
+  border-radius: 50%;
+  color: var(--color-node-icon-text);
+  font-weight: 500;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.node-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+  flex-grow: 1;
+}
+
+.node-title {
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: var(--color-node-text);
+}
+
+.node-description {
+  font-size: 0.72rem;
+  color: var(--color-node-description);
+  font-weight: 400;
+}
+
+/* Downward Arrow */
+.org-chart-node:not(:first-child):after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid var(--color-arrow);
+  transform: translateX(-50%);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .org-chart {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    flex-direction: column;
+  }
+
+  .node-content {
+    padding: 4px 24px 4px 10px;
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .node-icon {
+    font-size: 1.15rem;
+    width: 42px;
+    height: 42px;
+    font-weight: 600;
+  }
+
+  .node-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .node-description {
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
+}

@@ -144,7 +144,7 @@ function Sidebar({ collapsed, toggleSidebar, mobileOpen, handleMobileClose, styl
           width: '100vw',
           flexShrink: 0,
           '& .MuiDrawer-paper': {
-            width: '265px',
+            width: '245px',
             maxWidth: '100%',
             boxSizing: 'border-box',
             backgroundColor: '#3F4D67',

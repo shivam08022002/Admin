@@ -2,18 +2,23 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { Provider } from 'react-redux';
 import { useMemo, useState } from 'react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
-
 import { store } from './store';
 import { getTheme } from './Components/theme';
-
 import Layout from './Components/Layout/Layout';
 import Login from './Components/Login/Login';
+import ProtectedRoute from './Components/ProtectedRoute';
 import Dashboard from './Components/Dashboard/Dashboard';
-import ProtectedRoute from './components/ProtectedRoute';
+import Settings from './Components/Settings/Settings';
+import SearchUser from './Components/SearchUser/SearchUsers';
+import TokenService from './services/token-service';
 
-function App() {
+function App(role, logout) {
   const [darkMode, setDarkMode] = useState(false);
   const theme = useMemo(() => getTheme(darkMode ? 'dark' : 'light'), [darkMode]);
+
+
+  let mRole = role || TokenService.getRole() || "Admin";
+  let eType = "Admin";
 
   return (
     <Provider store={store}>
@@ -47,10 +52,9 @@ function App() {
             <Route path="/block-market" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><div>Block Market</div></Layout></ProtectedRoute>} />
             <Route path="/profit-loss" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><div>Profit & Loss</div></Layout></ProtectedRoute>} />
             <Route path="/coin-history" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><div>Coin History</div></Layout></ProtectedRoute>} />
-            <Route path="/search-user" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><div>Search User</div></Layout></ProtectedRoute>} />
-            <Route path="/settings" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><div>Settings</div></Layout></ProtectedRoute>} />
+            <Route path="/search-user" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><SearchUser role={role} logout={logout} /></Layout></ProtectedRoute>} />
+            <Route path="/settings" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><Settings role={role} logout={logout} /></Layout></ProtectedRoute>} />
             <Route path="/change-password" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><div>Change Password</div></Layout></ProtectedRoute>} />
-
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
         </Router>

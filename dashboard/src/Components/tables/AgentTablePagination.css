@@ -1,0 +1,159 @@
+/* General Pagination Container */
+.agent-table-pagination-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0px;
+    margin-bottom: 10px;
+    height: 32px; /* Ensure the height of the container is 50px */
+}
+
+/* Left Section: Rows Per Page & Entries Information */
+.agent-table-pagination-info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.rows-per-page {
+    display: flex;
+    align-items: baseline;
+    height: 50px; /* Match the height of the button block */
+}
+
+.label {
+    margin-right: 8px;
+    font-size: 0.65rem;
+}
+
+.select {
+    width: 60px;
+    height: 28px; /* Adjust height to fit within the 50px container */
+    font-size: 0.65rem;
+    border: 1px solid #ccc; /* Light grey border */
+    background-color: white; /* White background */
+}
+
+.select .MuiSelect-select {
+    padding: 0; /* Remove padding for proper height */
+}
+
+.select .MuiOutlinedInput-notchedOutline {
+    border: none; /* Remove default border */
+}
+
+.select .MuiSelect-icon {
+    color: #333; /* Charcoal color for dropdown icon */
+}
+
+/* Entries Information */
+.entries-info {
+    font-size: 0.65rem;
+}
+
+/* Right Section: Pagination Controls */
+.agent-table-pagination-controls {
+    display: flex;
+    vertical-align: top;
+}
+
+.pagination-button {
+    min-width: 0;
+    height: 50px;
+    font-size: 0.75rem;
+    padding: 0 10px;
+    background-color: white; /* White background for the buttons */
+    color: #333; /* Charcoal color */
+    border: 1px solid #ccc; /* Light grey border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for texture */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pagination-button:first-of-type {
+    border-radius: 4px 0 0 4px; /* Rounded outer left corners */
+    border-right: none; /* No right border for Prev button */
+}
+
+.pagination-button:last-of-type {
+    border-radius: 0 4px 4px 0; /* Rounded outer right corners */
+    border-left: none; /* No left border for Next button */
+}
+
+.pagination-button:hover {
+    background-color: #f5f5f5; /* Slightly textured white on hover */
+    border-color: #bbb; /* Darker grey on hover */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Darker shadow on hover */
+}
+
+.page-number {
+    margin: 0 5px;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background-color: #f1f1f1; /* Cream color for the page number */
+    border: 1px solid #ccc; /* Light grey border */
+}
+
+.agent-table-showing-entries {
+    color: #676a6c;
+    font-size: 13px;
+    font-weight: 400;
+    vertical-align: top;
+}
+
+.agent-table-pagination-prev-button{
+    background: linear-gradient(145deg, white, white);
+    color: #333;
+    text-transform: none;
+    font-size: 12px;
+    border: 1px solid lightgrey;
+    border-radius: 4px 0px 0px 4px;
+    padding: 6px 12px;
+    box-shadow: 0 0.1px 0.1px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    margin: 0px;
+}
+
+.agent-table-pagination-prev-button:hover {
+    background: linear-gradient(145deg, #e0e0e0, #f0f0f0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.agent-table-pagination-next-button{
+    background: linear-gradient(145deg, white, white);
+    color: #333;
+    text-transform: none;
+    font-size: 12px;
+    border: 1px solid lightgrey;
+    border-radius: 0px 4px 4px 0px;
+    padding: 6px 12px;
+    box-shadow: 0 0.1px 0.1px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    margin: 0px;
+}
+
+.agent-table-pagination-next-button:hover {
+    background: linear-gradient(145deg, #e0e0e0, #f0f0f0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.agent-table-page-number {
+    width: 30px;
+    background: #f4f4f4;
+    text-align: center;
+    padding-top: 4px;
+    border: 1px solid lightgrey;
+    border-left: none;
+    border-right: none;
+    color: #676a6c;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+@media (orientation: portrait) {
+    .agent-table-pagination-container {
+        height: 32px; /* Ensure the height of the container is 50px */
+    }
+}
