@@ -1,0 +1,507 @@
+.wrapper {
+    background-image: url('/src/assets/fight_fists.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.wrapper-cricket {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* background: black; */
+}
+
+.bet-panel-root {
+    width: 100%;
+    margin-left: 0px;
+    padding: 2px;
+    padding-top: 0px;
+    padding-left: 0px;
+    /* padding-right: 30px; */
+    text-align: right;
+    align-items: right;
+    justify-content: right;
+    margin-left: auto;
+}
+
+.market-root {
+    overflow: auto;
+    width: 100%;
+}
+
+.market-container {
+    width: 935px;
+}
+
+.team-card {
+    background-color: white !important;
+    margin-bottom: 1px;
+}
+
+.team-card:hover {
+    background-color: lightgrey !important;
+    /* Change background color on hover */
+    cursor: pointer;
+    /* Change cursor on hover */
+}
+
+.game-bets {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* Create 3 equal columns */
+    gap: 10px;
+}
+
+.live-matches-operation-button-container {
+    width: 100%;
+}
+
+.live-matches-buttons {
+    padding-bottom: 5px;
+}
+
+.live-matches-container {
+    display: flex;
+    direction: row;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    padding: 8px;
+    background: black;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(154, 154, 154, 154);
+}
+
+.live-matches-left {
+    width: 100%;
+    margin-right: 2px;
+    /* background: purple; */
+}
+
+.live-matches-right {
+    width: 100%;
+    margin-left: 2px;
+    /* background: yellow; */
+}
+
+.game-status-not-live,
+.game-status-live {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+}
+
+.game-status-not-live {
+    font-size: 30px;
+    padding-top: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    color: white;
+}
+
+.bet-panel-header-1 {
+    margin-top: 0px;
+    /* margin-bottom: 15px; */
+    background: #f8f8f8;
+    /* border: 1px solid black;
+    border-bottom: none; */
+    box-shadow: rgb(6 22 33 / 30%) 0px 1px 2px;
+    border-radius: 8px;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.bet-panel-header-2 {
+    margin-top: 1px;
+    background: #f8f8f8;
+    /* border: 1px solid black;
+    border-bottom: none; */
+    box-shadow: rgb(6 22 33 / 30%) 0px 1px 2px;
+    border-radius: 8px;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.cricket-scoreboard-root {
+    width: 30%;
+    min-height: 292px;
+    margin-top: 2px;
+}
+
+.cric-cricket-scoreboard-root {
+    width: 100%;
+    /* min-height: 292px; */
+    margin-top: 2px;
+}
+
+.cricket-scoreboard-top-container {
+    /* border: 1px solid red; */
+    /* width: 100%; */
+    padding: 5px;
+    /* background-color: #020029; */
+    background: #041E42;
+}
+
+.cricket-scoreboard-team-score-container {
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid green; */
+    padding: 0px;
+    font-size: 14px;
+    color: white;
+}
+
+.team-score-container-left {
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid purple; */
+    width: 40%;
+}
+
+.team-score-container-right {
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid purple; */
+    width: 40%;
+    justify-content: right;
+}
+
+.cricket-scoreboard-team-score-msg-container {
+    /* border: 1px solid blue; */
+    color: white;
+    padding: 5px;
+}
+
+.cricket-scoreboard-team-batters-container {
+    /* border: 1px solid purple; */
+    padding: 0px;
+    font-size: 13px;
+    color: white;
+    margin-top: 5px;
+}
+
+.cricket-scoreboard-team-bowlers-container {
+    /* border: 1px solid yellow; */
+    padding: 0px;
+    font-size: 13px;
+    color: white;
+}
+
+.team-left-flag-name {
+    text-align: center;
+}
+
+.team-left-scores {
+    margin-left: 20px;
+    justify-content: left;
+}
+
+.current-inning {
+    width: 20%;
+    text-align: center;
+    color: limegreen;
+}
+
+.team-right-flag-name {
+    text-align: center;
+}
+
+.team-right-scores {
+    margin-right: 20px;
+    justify-content: right;
+}
+
+.cricket-scoreboard-team-score-msg-container {
+    text-align: center;
+}
+
+.cricket-scoreboard-last-balls-container {
+    text-align: left;
+}
+
+.cricket-last-four-overs-container {
+    color: grey;
+    font-size: 10px;
+}
+
+.cricket-last-four-overs {
+    font-size: 12px;
+    color: lightgrey;
+}
+
+.cricket-team-flag {
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 1px;
+    width: 40px;
+    height: 34px;
+}
+
+.live-match-title-container {
+    /* width: 50%; */
+    display: flex;
+    justify-content: center;
+    background: #041E42;
+    padding-top: 8px;
+    margin-bottom: 0px;
+    align-content: center;
+    color: lightgrey;
+    font-size: 16px;
+}
+
+.cricket-scoreboard-over {
+    color: lightgrey;
+    font-size: 12px;
+}
+
+@keyframes rollout {
+    0% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes flash-yellow {
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+        background: lightyellow;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+        background: lightyellow;
+    }
+}
+
+@keyframes flash-blue {
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+        background: skyblue;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+        background: skyblue;
+    }
+}
+
+.roll-out {
+    animation: rollout 0.4s;
+}
+
+.flash-yellow {
+    animation: flash-yellow 0.4s;
+}
+
+.flash-blue {
+    animation: flash-blue 0.4s;
+}
+
+.score-stream-toggle-container {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    justify-content: space-between;
+}
+
+.score-stream-toggle-button {
+    width: 98%;
+    background: #3F4D67;
+    text-align: center;
+    padding: 4px;
+    color: white;
+    margin-left: 0.2%;
+    border-radius: 2%;
+    box-shadow: 0px 0px 2px #3F4D67;
+}
+
+.cricket-match-score-board-container {
+    width: 99.8%;
+    margin-bottom: -7px;
+    margin-left: 0.2%;
+}
+
+/* Live score frame and video stream container styling */
+.live-score-frame {
+    width: 100% !important;
+    height: 149px !important;
+    border: none !important;
+    background-color: transparent !important;
+}
+
+.live-match-screen-stream-container {
+    width: 100% !important;
+    height: 149px !important;
+    border: none !important;
+    background-color: #000000 !important;
+}
+
+@media (orientation: portrait) {
+
+    .wrapper-cricket {
+        /* width: 100%; */
+        flex-direction: column;
+        /* background: black; */
+    }
+
+    .bet-panel-root {
+        width: 100%;
+        padding: 0px;
+    }
+
+    .live-matches-container {
+        display: block;
+        width: 100%;
+        margin: auto;
+    }
+
+    .game-status-not-live,
+    .game-status-live {
+        width: 100%;
+    }
+
+    .game-status-not-live {
+        font-size: 30px;
+        padding-top: 50px;
+        justify-content: center;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 10;
+    }
+
+    .cricket-scoreboard-root {
+        width: 100%;
+    }
+
+    .cric-cricket-scoreboard-root {
+        width: 100%;
+    }
+
+    .live-match-title-container {
+        width: 100%;
+    }
+
+    .cricket-scoreboard-top-container {
+        /* border: 1px solid red; */
+        width: 100%;
+        padding: 5px;
+    }
+
+    .cricket-scoreboard-team-score-container {
+        display: flex;
+        flex-direction: row;
+        /* border: 1px solid green; */
+        padding: 0px;
+        font-size: 14px;
+    }
+
+    .cricket-scoreboard-team-score-msg-container {
+        /* border: 1px solid blue; */
+        padding: 0px;
+    }
+
+    .cricket-scoreboard-team-batters-container {
+        /* border: 1px solid purple; */
+        padding: 0px;
+        font-size: 13px;
+    }
+
+    .cricket-scoreboard-team-bowlers-container {
+        /* border: 1px solid yellow; */
+        padding: 0px;
+        font-size: 13px;
+    }
+
+    .team-left-flag-name {
+        text-align: center;
+    }
+
+    .team-left-scores {
+        margin-left: 15px;
+        justify-content: left;
+    }
+
+    .team-right-flag-name {
+        text-align: center;
+    }
+
+    .team-right-scores {
+        margin-right: 15px;
+        justify-content: right;
+    }
+
+    .cricket-scoreboard-team-score-msg-container {
+        font-size: 13px;
+        text-align: center;
+    }
+
+    .cricket-scoreboard-last-balls-container {
+        text-align: left;
+    }
+
+    .cricket-last-four-overs-container {
+        color: darkgrey;
+        font-size: 10px;
+    }
+
+    .cricket-last-four-overs {
+        font-size: 10px;
+        color: lightgrey;
+    }
+
+    .cricket-scoreboard-over {
+        color: lightgrey;
+        font-size: 12px;
+    }
+
+    .live-matches-left {
+        margin-right: 0px;
+    }
+
+    .live-matches-right {
+        margin-left: 0px;
+    }
+
+    .bet-panel-header-1 {
+        padding: 0px;
+    }
+
+    .bet-panel-header-2 {
+        padding: 0px;
+    }
+
+    .current-inning {
+        width: 20%;
+        text-align: center;
+    }
+
+    .cricket-team-flag {
+        width: 30px;
+        height: 24px;
+    }
+
+    .cricket-match-score-board-container {
+        width: 100%;
+        margin-bottom: -7px;
+        margin-left: 0%;
+        height: 100%;
+    }
+
+    .score-stream-toggle-button {
+        width: 99%;
+        margin-right: 0.1%;
+    }
+}

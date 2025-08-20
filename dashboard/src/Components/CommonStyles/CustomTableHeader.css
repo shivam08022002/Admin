@@ -1,0 +1,125 @@
+.custom-table-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(145deg, #f8f9fa, #F3F5F7);
+    border: 1px solid #bec0c5;
+    border-radius: 0px;
+    padding: 6px 15px;
+    margin: 5px;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    min-height: 32px;
+    border-bottom: 3px solid #3DA3F4;
+}
+
+.custom-table-title {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.table-title-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+}
+
+.custom-table-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+}
+
+.create-button {
+    background: linear-gradient(145deg, #17a2b8, #138496);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(30, 60, 114, 0.3);
+    height: 28px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.create-button:hover {
+    background: linear-gradient(135deg, #2a5298, #1e3c72);
+    box-shadow: 0 4px 8px rgba(30, 60, 114, 0.4);
+    transform: translateY(-1px);
+}
+
+.create-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(30, 60, 114, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .custom-table-header {
+        flex-direction: row;
+        align-items: stretch;
+        border-radius: 6px 0 0 6px;
+        gap: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .custom-table-title {
+        justify-content: left;
+        text-align: center;
+    }
+    
+    .table-title-text {
+        font-size: 16px;
+    }
+    
+    .custom-table-actions {
+        justify-content: center;
+    }
+    
+    .create-button {
+        width: fit-content;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-table-header {
+        margin: 0px;
+        margin-left: 4px;
+        margin-bottom: 10px;
+        padding: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+        height: 40px;
+    }
+    
+    .table-title-text {
+        font-size: 15px;
+    }
+    
+    .create-button {
+        font-size: 14px;
+        padding: 0px 8px;
+        font-weight: 600;
+        width: fit-content;
+        margin-top: 2px;
+        height: 30px;
+        margin-bottom: 2px;
+    }
+}

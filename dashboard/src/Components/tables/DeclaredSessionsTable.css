@@ -1,0 +1,429 @@
+.declared-sessions-odds-table-container {
+    overflow-x: auto;
+    width: 100%;
+    margin-bottom: 0px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.declared-sessions-odds-table {
+    background: #ffffff;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+}
+
+.declared-sessions-odds-table thead {
+    background: #f8f9fa;
+}
+
+.declared-sessions-odds-table-th-big {
+    border-bottom: 2px solid #e9ecef;
+    border-right: 1px solid #e9ecef;
+    color: #495057;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+    width: 60%;
+    padding: 14px 12px;
+    white-space: nowrap;
+}
+
+.declared-sessions-odds-table-td-big {
+    color: #212529;
+    font-size: 13px;
+    font-weight: 600;
+    width: 50vw;
+    padding: 12px;
+    border-bottom: 1px solid #e9ecef;
+    border-right: 1px solid #e9ecef;
+    vertical-align: middle;
+}
+
+.declared-sessions-odds-table-td-big-total {
+    color: #212529;
+    font-size: 13px;
+    font-weight: 600;
+    width: 50%;
+    padding: 12px 24px 12px 12px;
+    border-bottom: 1px solid #e9ecef;
+    border-right: 1px solid #e9ecef;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.declared-sessions-odds-table-th-small {
+    border-bottom: 2px solid #e9ecef;
+    border-right: 1px solid #e9ecef;
+    color: #495057;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    width: 50%;
+    padding: 14px 12px;
+    white-space: nowrap;
+}
+
+.declared-sessions-odds-table-td-small {
+    color: #212529;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    padding: 8px 5px;
+    border-bottom: 1px solid #e9ecef;
+    border-right: 1px solid #e9ecef;
+}
+
+/* Remove right border from last column */
+.declared-sessions-odds-table-th-big:last-child,
+.declared-sessions-odds-table-td-big:last-child,
+.declared-sessions-odds-table-th-small:last-child,
+.declared-sessions-odds-table-td-small:last-child {
+    border-right: none;
+}
+
+.declared-sessions-odds-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.declared-sessions-odds-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.declared-sessions-odds-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Status Styles */
+.status-settled-green,
+.status-pending-red {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    white-space: nowrap;
+    vertical-align: middle;
+    margin: 5px auto;
+    text-align: center;
+}
+
+.status-settled-green {
+    color: #2E7D32 !important;
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+.status-pending-red {
+    color: #C62828 !important;
+    background-color: rgba(244, 67, 54, 0.1);
+}
+
+.bet-name {
+    font-weight: 600;
+    color: #2c3e50;
+    word-break: break-word;
+    white-space: nowrap;
+}
+
+.no-bets-message {
+    text-align: center;
+    color: #6c757d;
+    padding: 20px;
+    font-style: italic;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .declared-sessions-odds-table {
+        font-size: 12px;
+    }
+    
+    .declared-sessions-odds-table-th-big,
+    .declared-sessions-odds-table-td-big {
+        padding: 10px 8px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+    
+    .declared-sessions-odds-table-th-small,
+    .declared-sessions-odds-table-td-small {
+        padding: 10px 8px;
+        font-size: 11px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .bet-name {
+        font-size: 0.85rem;
+    }
+
+    .status-settled-green,
+    .status-pending-red {
+        min-width: 70px;
+        padding: 3px 6px;
+        font-size: 0.8rem;
+    }
+
+    .no-bets-message {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .declared-sessions-odds-table {
+        font-size: 12px;
+    }
+    
+    .declared-sessions-odds-table-th-big,
+    .declared-sessions-odds-table-td-big {
+        padding: 8px 6px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+    
+    .declared-sessions-odds-table-th-small,
+    .declared-sessions-odds-table-td-small {
+        padding: 8px 6px;
+        font-size: 12px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .bet-name {
+        font-size: 0.6rem;
+    }
+
+    .status-settled-green,
+    .status-pending-red {
+        min-width: 60px;
+        padding: 2px 4px;
+        font-size: 0.75rem;
+    }
+
+    .no-bets-message {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* demo styles */
+
+/* @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+body {
+    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+    background: linear-gradient(to right, #25c481, #25b7c4);
+    font-family: 'Roboto', sans-serif;
+} */
+
+/* section {
+    margin: 50px;
+} */
+
+
+/* follow me template */
+/* .made-with-love {
+    margin-top: 40px;
+    padding: 10px;
+    clear: left;
+    text-align: center;
+    font-size: 10px;
+    font-family: arial;
+    color: #fff;
+}
+
+.made-with-love i {
+    font-style: normal;
+    color: #F50057;
+    font-size: 14px;
+    position: relative;
+    top: 2px;
+}
+
+.made-with-love a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.made-with-love a:hover {
+    text-decoration: underline;
+} */
+
+/* Update the table cell containing status to ensure center alignment */
+/* .declared-sessions-odds-table-td-small:last-child {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.bet-history-row td:nth-child(3) {
+    text-align: right;
+    padding-right: 12px;
+}
+
+.declared-sessions-odds-table tbody tr:last-child td:last-child {
+    text-align: right;
+    padding-right: 12px;
+}
+
+/* === GRID LAYOUT FOR DECLARED SESSIONS === */
+.declared-sessions-grid-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #e9ecef;
+    overflow-x: auto;
+    margin-bottom: 0px;
+}
+
+.declared-sessions-grid-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+    font-weight: 700;
+}
+
+.declared-sessions-grid-header-cell {
+    padding: 14px 12px;
+    font-size: 14px;
+    color: #495057;
+    white-space: nowrap;
+    border-right: 1px solid #e9ecef;
+    text-align: center;
+}
+.declared-sessions-grid-header-cell:last-child {
+    border-right: none;
+}
+
+.declared-sessions-grid-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-bottom: 1px solid #e9ecef;
+    transition: background-color 0.2s ease;
+    align-items: center;
+}
+.declared-sessions-grid-row:last-child {
+    border-bottom: none;
+}
+.declared-sessions-grid-row:hover:not(.total) {
+    background-color: #f8f9fa;
+}
+
+.declared-sessions-grid-cell {
+    padding: 12px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #212529;
+    border-right: 1px solid #e9ecef;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.declared-sessions-grid-cell:last-child {
+    border-right: none;
+    text-align: right;
+    padding-right: 18px;
+}
+.declared-sessions-grid-cell.result {
+    text-align: center;
+    color: #212529;
+}
+.declared-sessions-grid-cell.status {
+    text-align: right;
+    color: #212529;
+}
+
+.declared-sessions-grid-row.total {
+    background: #f8f9fa;
+    font-weight: 700;
+    border-top: 1px solid #e9ecef;
+}
+
+.no-bets-message {
+    text-align: center;
+    color: #6c757d;
+    padding: 20px;
+    font-style: italic;
+    grid-column: 1 / -1;
+}
+
+.bet-name {
+    font-weight: 600;
+    color: #2c3e50;
+    word-break: break-word;
+    white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .declared-sessions-grid-header,
+    .declared-sessions-grid-row {
+        grid-template-columns: 1.5fr 1fr 1fr;
+    }
+    .declared-sessions-grid-header-cell,
+    .declared-sessions-grid-cell {
+        font-size: 12px;
+        padding: 10px 6px;
+    }
+    .bet-name {
+        font-size: 0.85rem;
+    }
+}
+@media (max-width: 480px) {
+    .declared-sessions-grid-header,
+    .declared-sessions-grid-row {
+        grid-template-columns: 1fr 0.8fr 1fr;
+    }
+    .declared-sessions-grid-header-cell,
+    .declared-sessions-grid-cell {
+        font-size: 11px;
+        padding: 8px 4px;
+    }
+    .bet-name {
+        font-size: 0.7rem;
+    }
+}
+
+/* Hide old table styles for grid version */
+.declared-sessions-odds-table-container,
+.declared-sessions-odds-table,
+.declared-sessions-odds-table-th-big,
+.declared-sessions-odds-table-th-small,
+.declared-sessions-odds-table-td-big,
+.declared-sessions-odds-table-td-small,
+.declared-sessions-odds-table-td-big-total {
+    display: none !important;
+}

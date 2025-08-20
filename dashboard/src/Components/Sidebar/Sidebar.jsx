@@ -29,6 +29,7 @@ import {
   FaSearch,
   FaCog,
   FaLock,
+  FaPercent,
   FaSignOutAlt
 } from 'react-icons/fa';
 import { VscChromeClose } from "react-icons/vsc";
@@ -67,11 +68,9 @@ function Sidebar({ collapsed, toggleSidebar, mobileOpen, handleMobileClose, styl
     { text: 'Live Matches', icon: <MdSportsCricket/>, path: '/live-matches' },
     { text: 'Complete Matches', icon: <MdSportsCricket/>, path: '/complete-matches' },
 
-
-
     {
       text: 'Users', icon: <FaUsers />, subItems: [
-        { text: 'Create Users', icon: <FaUser />, path: '/users/create' },
+        { text: 'My Cients', icon: <FaUser />, path: '/users/clients' },
         { text: 'SM', icon: <FaUsers />, path: '/users/sm' },
         { text: 'SC', icon: <FaUsers />, path: '/users/sc' },
         { text: 'SST', icon: <FaUsers />, path: '/users/sst' },
@@ -94,6 +93,7 @@ function Sidebar({ collapsed, toggleSidebar, mobileOpen, handleMobileClose, styl
     { text: 'Coin History', icon: <FaHistory />, path: '/coin-history' },
     { text: 'Search User', icon: <FaSearch />, path: '/search-user' },
     { text: 'Settings', icon: <FaCog />, path: '/settings' },
+    { text: 'Commission & Limits', icon: <FaPercent />, path: '/commissionlimits' },
     { text: 'Change Password', icon: <FaLock />, path: '/change-password' },
     { text: 'Logout', icon: <FaSignOutAlt />, path: '/logout' },
   ];

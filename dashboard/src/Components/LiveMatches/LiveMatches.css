@@ -1,0 +1,143 @@
+.agent-dashboard-root {
+    font-family: "Roboto Condensed", sans-serif;
+    padding-bottom: 20px;
+}
+
+.clock-icon {
+    width: 12px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+    margin-right: 2px;
+}
+
+.match-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-bottom: 2px solid #ddd;
+    padding: 8px 0;
+    gap: 0;
+}
+
+.tab-button {
+    flex: 1;
+    background: #f1f1f1;
+    border: none;
+    outline: none;
+    padding: 12px 0;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-button:last-child {
+    border-right: none;
+}
+
+.tab-button:hover {
+    background-color: #e9ecef;
+    color: #000;
+}
+
+.tab-button.active-tab {
+    border-bottom: 3px solid #0056b3;
+    font-weight: bold;
+    color: #0056b3;
+}
+
+
+.cric-agent-matches-dashboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 5px;
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: 100%;
+}
+
+.cric-agent-matches-dashboard-buttons-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.cric-agent-matches-dashboard-buttons-parent {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.cric-agent-matches-dashboard-buttons-container-top {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.cric-agent-matches-dashboard-coins-rs-exposure-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.cric-agent-matches-dashboard-coins-rs-exposure {
+    margin-right: 20px;
+    background: white;
+    padding-bottom: 20px;
+    width: 40%;
+}
+
+.cric-agent-matches-dashboard-coins-rs-exposure-value {
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 20px;
+    font-size: 25px;
+    font-family: "Roboto Condensed", sans-serif;
+    color: #676a6c;
+    font-weight: 700;
+}
+
+@media (orientation: portrait) {
+    .match-tabs {
+        flex-direction: row;
+        gap: 4px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .tab-button {
+        width: 100%;
+        font-size: 14px;
+        text-align: center;
+        padding: 8px 0;
+    }
+
+    .cric-agent-matches-dashboard-container {
+        margin-bottom: 0px;
+    }
+
+    .cric-agent-matches-dashboard-buttons-container,
+    .cric-agent-matches-dashboard-buttons-container-mini {
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .cric-agent-matches-dashboard-coins-rs-exposure-container {
+        flex-direction: column;
+        margin-top: 0px;
+    }
+
+    .cric-agent-matches-dashboard-coins-rs-exposure {
+        margin-right: 0px;
+        margin-top: 10px;
+        width: 100%;
+    }
+}

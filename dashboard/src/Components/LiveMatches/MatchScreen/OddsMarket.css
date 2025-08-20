@@ -1,0 +1,164 @@
+.odds-market-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+    table-layout: fixed;
+}
+
+.odds-market-table th,
+.odds-market-table td {
+    border: none;
+    padding: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.odds-market-header-container {
+    background-color: #f8f8f8;
+    display: flex;
+    margin-right: 0px;
+    flex-direction: row;
+    max-height: 31px;
+    align-items: center;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+
+.odds-market-header {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    background: #3a61a2;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 0px 15px 0 0;
+    padding: 6px;
+    padding-top: 9px;
+    padding-right: 10px;
+    font-size: 12px;
+}
+
+.odds-market-min-max-lagai-khai-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+}
+
+.odds-market-min-max-container {
+    background-color: #f2ecec;
+    text-align: left;
+    font-size: 1em;
+    font-weight: 600;
+    align-content: center;
+    color: #12524f;
+}
+
+.odds-market-teams-odds-row-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.odds-market-teams-odds-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+}
+
+.odds-market-teams-odds-row:last-child {
+    border-bottom: none;
+}
+
+.odds-market-bet-candidates-container {
+    display: flex;
+    flex-direction: row;
+}
+
+td.odds-market-bet-candidates-header {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    background: #E9E9E9;
+    color: #49494a;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    align-content: center;
+}
+
+td.odds-market-teams-container {
+    border-top: 1px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+}
+
+.odds-market-rate-value-container {
+    display: flex;
+    flex-direction: row;
+}
+
+td.odds-market-rate-value-lagai {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    background: #61ACDE;
+    text-align: center;
+    align-content: center;
+    font-size: 14px;
+    color: white;
+    font-weight: 600;
+}
+
+td.odds-market-rate-value-khai {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    background: #F6B771;
+    text-align: center;
+    align-content: center;
+    font-size: 14px;
+    color: white;
+    font-weight: 600;
+}
+
+td.odds-market-suspended {
+    background: #FFEAEB;
+    text-align: center;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    font-size: 14px;
+    color: red;
+    font-weight: 600;
+}
+
+.odds-market-min-max-parent {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    width: 100%;
+    background-color: #f2ecec;
+    text-align: left;
+    font-size: 1em;
+    font-weight: 700;
+    color: #12524f;
+    padding-left: 5px;
+}
+
+.odds-market-team-name {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.odds-market-rate-value-span {
+    margin: 0px;
+}
+
+@media (orientation: portrait) {
+    .odds-market-min-max-lagai-khai-container {
+        height: 26px;
+    }
+}

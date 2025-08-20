@@ -1,0 +1,95 @@
+
+.my-clients-header-container,
+.my-downlines-header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    color: #f8f8f8;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+    text-align: left;
+}
+
+.create-new-bg {
+    display: flex;
+    align-items: center;
+}
+
+.add-master-container {
+    display: flex;
+    align-items: center;
+}
+
+/* .my-downline-table-container {
+    margin: 0px;
+    margin-top: 0px;
+} */
+
+.create-new-bg{
+    background-color: #ffffff;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 3px 0 0;
+    height: 40px;
+    color:#676a6c;
+    border-bottom: 1px solid #e7eaec;
+}
+
+.my-downline-table-container-commission-limit {
+    margin: 5px;
+    margin-top: 0px;
+}
+
+.my-downline-commission-limit-root {
+    margin-top: 0px;
+}
+
+.my-downlines-csv-pdf-search-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-bottom: 5px;
+    align-items: baseline;
+}
+
+.my-downlines-csv-pdf-container {
+    justify-content: center;
+    text-align: left;
+    width: 100%;
+}
+
+.my-downlines-search-container {
+    justify-content: center;
+    text-align: right;
+}
+
+@media (orientation: portrait) {
+    .my-downline-root {
+        margin-top: 0px;
+        padding: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    /* .my-downline-table-container {
+        padding-top: 5px;
+    } */
+
+    .my-downline-table-container-commission-limit {
+        padding-top: 0px;
+    }
+
+    .my-downline-commission-limit-root {
+        margin-top: 0px;
+    }
+
+    .my-downlines-csv-pdf-search-container {
+        padding-left: 10px;
+    }
+}

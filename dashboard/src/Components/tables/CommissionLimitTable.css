@@ -1,0 +1,640 @@
+.commission-limit-table-root {
+    background: white;
+    overflow-x: auto;
+    padding: 10px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+}
+
+.commission-limit-table-container {
+    max-width: 1160px;
+    border: 0.5px solid #dcdcdc;
+    border-radius: 1px;
+    scrollbar-width: none;
+    /* background: purple; */
+}
+
+.commission-limit-table-custom {
+    border-collapse: collapse;
+    scrollbar-width: none;
+    /* background: green; */
+}
+
+.commission-limit-table-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.commission-limit-table-header-cell-grey {
+    background-color: #f5f5f6;
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 10px;
+    padding-left: 8px;
+    vertical-align: top;
+    text-align: left;
+    border-right: 0.5px solid #dcdcdc;
+    border-bottom: 0.5px solid #dcdcdc;
+    cursor: pointer;
+    max-width: 8%;
+    min-width: 8%;
+    min-height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.commission-limit-table-master-header-cell-grey {
+    background-color: #f5f5f6;
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px;
+    padding-left: 8px;
+    vertical-align: top;
+    text-align: center;
+    border-right: 0.5px solid #dcdcdc;
+    border-bottom: 0.5px solid #dcdcdc;
+    cursor: pointer;
+    max-width: 22.65%;
+    min-width: 22.65%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.commission-limit-table-master-header-cell-grey2 {
+    background-color: #f5f5f6;
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px;
+    padding-left: 8px;
+    vertical-align: top;
+    text-align: center;
+    border-right: 0.5px solid #dcdcdc;
+    border-bottom: 0.5px solid #dcdcdc;
+    cursor: pointer;
+    max-width: 30%;
+    min-width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.commission-limit-table-master-header-cell-grey3 {
+    background-color: #f5f5f6;
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px;
+    padding-left: 8px;
+    vertical-align: top;
+    text-align: center;
+    border-right: 0.5px solid #dcdcdc;
+    border-bottom: 0.5px solid #dcdcdc;
+    cursor: pointer;
+    max-width: 26%;
+    min-width: 26%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.commission-limit-table-header-cell {
+    background-color: #f5f5f6;
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px;
+    padding-left: 8px;
+    vertical-align: top;
+    text-align: left;
+    border-right: 0.5px solid #dcdcdc;
+    border-bottom: 0.5px solid #dcdcdc;
+    cursor: pointer;
+    max-width: 22.65%;
+    min-width: 22.65%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.commission-limit-table-header-cell-actions {
+    background-color: #f5f5f6;
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px;
+    padding-left: 8px;
+    vertical-align: top;
+    text-align: left;
+    border-right: 0.5px solid #dcdcdc;
+    border-bottom: 0.5px solid #dcdcdc;
+    cursor: pointer;
+    min-width: 21.3%;
+    max-width: 21.3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.commission-limit-table-header-cell-small {
+    background-color: #f5f5f6;
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px;
+    padding-left: 8px;
+    vertical-align: top;
+    text-align: left;
+    border-right: 0.5px solid #dcdcdc;
+    border-bottom: 0.5px solid #dcdcdc;
+    cursor: pointer;
+    max-width: 15%;
+    min-width: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.commission-limit-table-header-cell-small-same {
+    background-color: #f5f5f6;
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px;
+    padding-left: 8px;
+    vertical-align: top;
+    text-align: left;
+    border-right: 0.5px solid #dcdcdc;
+    border-bottom: 0.5px solid #dcdcdc;
+    cursor: pointer;
+    max-width: 15%;
+    min-width: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.commission-limit-table-header-cell-small2 {
+    background-color: #f5f5f6;
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px;
+    padding-left: 8px;
+    vertical-align: top;
+    text-align: left;
+    border-right: 0.5px solid #dcdcdc;
+    border-bottom: 0.5px solid #dcdcdc;
+    cursor: pointer;
+    max-width: 11%;
+    min-width: 11%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.commission-limit-table-header-cell:last-child {
+    border-right: none;
+}
+
+.commission-limit-table-header-cell-actions:last-child {
+    border-right: none;
+}
+
+.commission-limit-table-header-title {
+    max-width: 45px;
+}
+
+.commission-limit-table-header-title-full {
+    width: 100%;
+}
+
+.commission-limit-table-header-icons {
+    color: #7f8c8d;
+    vertical-align: bottom;
+    margin-top: auto;
+}
+
+.commission-limit-table-up-down-arrow-icons {
+    width: 7px;
+    color: #bdc3c7;
+}
+
+.commission-limit-table-directional-arrow-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    stroke: #34495e;
+}
+
+.commission-limit-table-row {
+    background-color: #ffffff;
+    font-size: 14px;
+    border-bottom: 0.5px solid #dcdcdc;
+    display: flex;
+    flex-direction: row;
+    /* background: purple; */
+}
+
+/* .commission-limit-table-row:nth-of-type(odd) {
+    background-color: #f8f8f8;
+} */
+
+.commission-limit-table-row:hover {
+    background-color: transparent;
+}
+
+.commission-limit-table-custom-td {
+    padding: 10px;
+    padding-left: 8px;
+    vertical-align: top;
+    text-align: left;
+    border: none;
+    border-right: 0.5px solid #dcdcdc;
+    color: #2c3e50;
+    font-weight: 400;
+    font-size: 13px;
+    max-width: 22.65%;
+    min-width: 22.65%;
+}
+
+.commission-limit-table-custom-td-actions {
+    /* background-color: orange; */
+    padding: 10px;
+    padding-left: 8px;
+    vertical-align: top;
+    text-align: left;
+    border: none;
+    border-right: 0.5px solid #dcdcdc;
+    color: #2c3e50;
+    font-weight: 400;
+    font-size: 13px;
+    min-width: 21.3%;
+    max-width: 21.3%;
+}
+
+.commission-limit-table-custom-td-grey {
+    padding: 10px;
+    padding-left: 8px;
+    vertical-align: top;
+    text-align: left;
+    border: none;
+    border-right: 0.5px solid #dcdcdc;
+    color: #2c3e50;
+    font-weight: 400;
+    font-size: 13px;
+    max-width: 8%;
+    min-width: 8%;
+    min-height: 60px;
+}
+
+.commission-limit-table-custom-td-small {
+    padding: 10px;
+    padding-left: 8px;
+    vertical-align: top;
+    text-align: left;
+    border: none;
+    border-right: 0.5px solid #dcdcdc;
+    color: #2c3e50;
+    font-weight: 400;
+    font-size: 13px;
+    max-width: 15%;
+    min-width: 15%;
+}
+
+.commission-limit-table-custom-td-small-same {
+    padding: 10px;
+    padding-left: 8px;
+    vertical-align: top;
+    text-align: left;
+    border: none;
+    border-right: 0.5px solid #dcdcdc;
+    color: #2c3e50;
+    font-weight: 400;
+    font-size: 13px;
+    max-width: 15%;
+    min-width: 15%;
+}
+
+.commission-limit-table-custom-td-small2 {
+    padding: 10px;
+    padding-left: 8px;
+    vertical-align: top;
+    text-align: left;
+    border: none;
+    border-right: 0.5px solid #dcdcdc;
+    color: #2c3e50;
+    font-weight: 400;
+    font-size: 13px;
+    max-width: 11%;
+    min-width: 11%;
+}
+
+.commission-limit-table-custom-td:first-child {
+    border-left: none;
+}
+
+.commission-limit-table-custom-td:last-child {
+    border-right: none;
+}
+
+.commission-limit-table-custom-td-actions:last-child {
+    border-right: none;
+}
+
+.commission-limit-table-db-button {
+    background: linear-gradient(145deg, #3498db, #2980b9);
+    color: white;
+    text-transform: none;
+    font-size: 14px;
+    margin-right: 8px;
+    border: 1px solid #2980b9;
+    border-radius: 4px;
+    padding: 6px 12px;
+    box-shadow: 0 2px 4px rgba(52, 152, 219, 0.2);
+    transition: all 0.3s ease;
+    min-width: 70px;
+    min-height: 36px;
+}
+
+.commission-limit-table-db-button:hover {
+    background: linear-gradient(145deg, #2980b9, #21618c);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+    transform: translateY(-1px);
+}
+
+.commission-limit-table-expo-button {
+    background: linear-gradient(145deg, #e74c3c, #c0392b);
+    color: white;
+    text-transform: none;
+    font-size: 14px;
+    margin-right: 8px;
+    border: 1px solid #c0392b;
+    border-radius: 4px;
+    padding: 6px 12px;
+    box-shadow: 0 2px 4px rgba(231, 76, 60, 0.2);
+    transition: all 0.3s ease;
+    min-width: 70px;
+    min-height: 36px;
+}
+
+.commission-limit-table-expo-button:hover {
+    background: linear-gradient(145deg, #c0392b, #a93226);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+    transform: translateY(-1px);
+}
+
+.commission-limit-table-d-button,
+.commission-limit-table-w-button,
+.commission-limit-table-pl-button,
+.commission-limit-table-stmt-button {
+    color: white;
+    text-transform: none;
+    font-size: 14px;
+    margin-right: 8px;
+    border-radius: 4px;
+    padding: 6px 12px;
+    transition: all 0.3s ease;
+    min-width: 40px;
+    min-height: 36px;
+}
+
+.commission-limit-table-d-button {
+    background: linear-gradient(145deg, #3498db, #2980b9);
+    border: 1px solid #2980b9;
+    box-shadow: 0 2px 4px rgba(52, 152, 219, 0.2);
+}
+
+.commission-limit-table-d-button:hover {
+    background: linear-gradient(145deg, #2980b9, #21618c);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+    transform: translateY(-1px);
+}
+
+.commission-limit-table-w-button {
+    background: linear-gradient(145deg, #e74c3c, #c0392b);
+    border: 1px solid #c0392b;
+    box-shadow: 0 2px 4px rgba(231, 76, 60, 0.2);
+}
+
+.commission-limit-table-w-button:hover {
+    background: linear-gradient(145deg, #c0392b, #a93226);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+    transform: translateY(-1px);
+}
+
+.commission-limit-table-pl-button {
+    background: linear-gradient(145deg, #1abc9c, #16a085);
+    border: 1px solid #16a085;
+    box-shadow: 0 2px 4px rgba(26, 188, 156, 0.2);
+}
+
+.commission-limit-table-pl-button:hover {
+    background: linear-gradient(145deg, #16a085, #138d75);
+    box-shadow: 0 4px 8px rgba(26, 188, 156, 0.3);
+    transform: translateY(-1px);
+}
+
+.commission-limit-table-stmt-button {
+    background: linear-gradient(145deg, #95a5a6, #7f8c8d);
+    border: 1px solid #7f8c8d;
+    box-shadow: 0 2px 4px rgba(149, 165, 166, 0.2);
+}
+
+.commission-limit-table-stmt-button:hover {
+    background: linear-gradient(145deg, #7f8c8d, #6c7b7d);
+    box-shadow: 0 4px 8px rgba(149, 165, 166, 0.3);
+    transform: translateY(-1px);
+}
+
+.commission-limit-table-edit-button-small {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    color: #2c3e50;
+    text-transform: none;
+    font-size: 12px;
+    margin-right: 8px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    padding: 3px 9px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-width: 26px;
+    min-height: 24px;
+}
+
+.commission-limit-table-edit-button-small:hover {
+    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+.commission-limit-table-button-icon {
+    margin-right: 4px;
+}
+
+.commission-limit-table-pagination {
+    text-align: center;
+    padding: 10px;
+}
+
+.commission-limit-table-pagination-button {
+    background-color: #ffffff;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    color: #2c3e50;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 4px;
+    padding: 6px 12px;
+    transition: all 0.3s ease;
+}
+
+.commission-limit-table-pagination-button.active {
+    background-color: #3498db;
+    color: #fff;
+    border-color: #3498db;
+    box-shadow: 0 2px 4px rgba(52, 152, 219, 0.2);
+}
+
+.commission-limit-table-pagination-button:hover {
+    background-color: #ecf0f1;
+    border-color: #95a5a6;
+    transform: translateY(-1px);
+}
+
+.commission-limit-table-pagination-button:disabled {
+    cursor: not-allowed;
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: #95a5a6;
+}
+
+.commission-limit-display-name-link {
+    height: 10px;
+    padding-left: 0px;
+    text-decoration: none;
+    color: #3498db;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.commission-limit-display-name-link:hover {
+    color: #2980b9;
+}
+
+.commission-limit-table-pagination-container {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.commission-limit-input-commission {
+    height: 30px;
+    border: 1px solid #bdc3c7;
+    color: #2c3e50;
+}
+
+.commission-limit-input-current-limit {
+    height: 30px;
+    border: 1px solid #34495e;
+    background: white;
+    color: #2c3e50;
+}
+
+.commission-limit-input-current-limit:focus {
+    border: 2px solid #1abc9c;
+    pointer-events: none;
+    outline: none;
+}
+
+@media (orientation: portrait) {
+
+    .commission-limit-table-root {
+        padding: 0px;
+        padding-top: 15px; 
+    }
+
+    .commission-limit-table-container {
+        min-width: 800px;
+        margin-left: 10px;
+    }
+
+    .commission-limit-table-master-header-cell-grey {
+        max-width: 28%;
+        min-width: 28%;
+    }
+
+    .commission-limit-table-header-cell {
+        max-width: 28%;
+        min-width: 28%;
+    }
+
+    .commission-limit-table-custom-td {
+        max-width: 28%;
+        min-width: 28%;
+    }
+
+    .commission-limit-input-commission {
+        height: 24px;
+        width: 32px;
+    }
+
+    .commission-limit-input-current-limit {
+        max-width: 100px !important;
+        height: 24px;
+    }
+
+    .commission-limit-table-master-header-cell-grey2 {
+        max-width: 16%;
+        min-width: 16%;
+    }
+
+    .commission-limit-table-master-header-cell-grey3 {
+        max-width: 26%;
+        min-width: 26%;
+    }
+
+    .commission-limit-table-header-cell-small {
+        max-width: 8%;
+        min-width: 8%;
+    }
+
+    .commission-limit-table-header-cell-small-same {
+        max-width: 15%;
+        min-width: 15%;
+    }
+
+    .commission-limit-table-header-cell-small2 {
+        max-width: 11%;
+        min-width: 11%;
+    }
+
+    .commission-limit-table-header-cell-actions {
+        min-width: 30%;
+        max-width: 30%;
+    }
+
+    .commission-limit-table-custom-td-small {
+        max-width: 8%;
+        min-width: 8%;
+    }
+    
+    .commission-limit-table-custom-td-small-same {
+        max-width: 15%;
+        min-width: 15%;
+    }
+
+    .commission-limit-table-custom-td-small2 {
+        max-width: 11%;
+        min-width: 11%;
+    }
+
+    .commission-limit-table-custom-td-actions {
+        min-width: 35%;
+        max-width: 35%;
+    }
+}

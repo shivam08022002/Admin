@@ -35,7 +35,7 @@ const StyledPaper = styled(Paper)(({ theme, color }) => ({
   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
   height: '100%',
   minHeight: 140,
-  aspectRatio: '1.9/1',
+  aspectRatio: '2/1',
   position: 'relative',
   overflow: 'hidden',
   '&::before': {

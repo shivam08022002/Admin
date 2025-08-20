@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 import Checkbox from '@mui/material/Checkbox';
 import { useState, useEffect } from "react";
-import { MARKET_STATUS_BLOCKED, MARKET_STATUS_UNBLOCKED, MARKET_STATUS_BLOCKEDUP } from '../common/Constants';
+import { MARKET_STATUS_BLOCKED, MARKET_STATUS_UNBLOCKED, MARKET_STATUS_BLOCKEDUP } from '../../common/constants';
 
 const BpIcon = styled('span')(({ theme }) => ({
     borderRadius: 3,

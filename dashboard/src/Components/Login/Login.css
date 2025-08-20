@@ -114,21 +114,25 @@
 
 .input-container label {
   position: absolute;
-  left: 0.75rem;
-  top: 0.85rem;
-  color: #858a91;
-  font-size: 0.95rem;
-  align-items: center;
-  text-align: center;
-  transition: all 0.3s ease;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  padding: 0 4px;
+  transition: 0.2s ease all;
   pointer-events: none;
+  z-index: 1;
 }
 
-.input-container input:focus ~ label,
-.input-container input:not(:placeholder-shown) ~ label {
-  transform: translateY(-2.4rem);
-  font-size: 0.85rem;
+
+.input-container input:not(:placeholder-shown) ~ label,
+.input-container.has-value label {
+  top: -10px;
+  left: 10px;
+  padding: 0 4px;
+  font-size: 0.75rem;
   color: #93c5fd;
+  z-index: 2;
 }
 
 /* Password Toggle Button */
@@ -188,7 +192,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
 }
 
 
@@ -231,6 +234,17 @@
   text-align: center;
   color: #e2e8f0;
   font-size: 0.9rem;
+}
+
+/* Autofill Background + Text Color Fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  -webkit-text-fill-color: #000000 !important; /* actual input text color */
+  color: #000000 !important;
+  transition: background-color 5000s ease-in-out 0s !important;
 }
 
 /* Responsive */

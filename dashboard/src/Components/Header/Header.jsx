@@ -141,13 +141,13 @@ const Header = ({ darkMode, toggleDarkMode, handleDrawerToggle }) => {
           >
             <span style={{ marginRight: 4 }}>₹</span> {balance.toFixed(2)}
           </Typography>
-          <IconButton
+          {/* <IconButton
             onClick={toggleDarkMode}
             color="inherit"
             sx={{ ml: { xs: 0, sm: 1 } }}
           >
             {darkMode ? <FaSun /> : <FaMoon />}
-          </IconButton>
+          </IconButton> */}
           <Button
             variant="contained"
             onClick={() => {

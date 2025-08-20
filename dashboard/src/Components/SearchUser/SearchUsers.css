@@ -157,8 +157,8 @@
 @media screen and (max-width: 480px) {
     .table-title {
         font-size: 12px !important;
-        height: 35px !important;
-        padding-left: 10px !important;
+        height: 40px !important;
+        padding: 10px !important;
         border-radius: 4px 4px 0 0 !important;
     }
     

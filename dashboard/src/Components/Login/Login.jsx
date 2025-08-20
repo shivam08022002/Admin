@@ -90,9 +90,13 @@ const Login = () => {
                 required
                 value={username}
                 onChange={(e) => setUsername(e.target.value.toUpperCase())}
-                placeholder=" "
+                placeholder="Username"
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck="false"
               />
-              <label htmlFor="username">Username</label>
+              {/* <label htmlFor="username">Username</label> */}
             </div>
           </div>
 
@@ -105,9 +109,13 @@ const Login = () => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder=" "
+                placeholder="Password"
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck="false"
               />
-              <label htmlFor="password">Password</label>
+              {/* <label htmlFor="password">Password</label> */}
               <button
                 type="button"
                 className="password-toggle"

@@ -14,8 +14,8 @@ export const dataPreset1 = [
     })),
 ];
 
-export const allMatches = ["ID", "PID", "Title", "Sport", "Date", "Profit / Loss"];
-export const completedMatches = ["ID", "PID", "Title", "Sport", "Date", "Won By", "Profit / Loss"];
+export const allMatches = ["PID", "Title", "Sport", "Date", "Profit / Loss"];
+export const completedMatches = ["PID", "Title", "Sport", "Date", "Won By", "Profit / Loss"];
 export const allSeries = ["ID", "CID", "Title", "Date"];
 export const myDownline = ['User Name', 'Name', 'Initial Balance', 'My Share', 'Max Share', "Actions"]
 export const collectionReport = ["Client", "Balance"];

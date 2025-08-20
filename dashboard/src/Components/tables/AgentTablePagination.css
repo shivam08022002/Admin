@@ -4,6 +4,7 @@
     display: flex;
     justify-content: space-between;
     padding-top: 0px;
+    margin: 10px;
     margin-bottom: 10px;
     height: 32px; /* Ensure the height of the container is 50px */
 }
@@ -13,6 +14,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    justify-content: center;
 }
 
 .rows-per-page {

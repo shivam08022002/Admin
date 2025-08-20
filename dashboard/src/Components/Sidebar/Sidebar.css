@@ -108,7 +108,8 @@
 
 .menu-button:hover,
 .menu-button.active {
-  background-color: #333E54;
+  background-color: #333E54 !important;
+  color: white;
 }
 
 .menu-icon {
@@ -146,15 +147,16 @@
   cursor: pointer;
   transition: background-color 0.2s ease;
   border-left: 4px solid #04A9F5 !important;
-
+  background-color: #333E54 !important;
 }
 
 .submenu-item:hover {
-  background-color: #333E54;
+  background-color: #242b3a !important;
+  color: #ffffff !important;
 }
 
 .submenu-item.active {
-  background-color: #333E54;
+  background-color: #242b3a !important;
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
 .sidebar::-webkit-scrollbar {
@@ -165,5 +167,5 @@
 .sidebar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-  display: none;
+  display: none ;
 }

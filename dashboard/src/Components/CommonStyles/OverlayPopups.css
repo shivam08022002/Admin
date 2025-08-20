@@ -1,0 +1,60 @@
+.agent-action-popup-container {
+    width: 120px;
+    height: 120px;
+    background: #f8f8f8;
+    /* margin: -76px 0 0 -76px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite; */
+  }
+
+  .agent-actions-popup-overlay {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:darkslategray;
+    opacity: 80%;
+  }
+  
+  .agent-actions-popup-overlay-content {
+    position: relative;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .agent-actions-popup-overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .agent-actions-popup-overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+  }
+  
+  .agent-actions-popup-overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .agent-actions-popup-overlay a {font-size: 20px}
+    .agent-actions-popup-overlay .agent-actions-popup-closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+    }
+  }

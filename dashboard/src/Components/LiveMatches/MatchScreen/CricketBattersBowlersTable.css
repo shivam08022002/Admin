@@ -1,0 +1,81 @@
+.cricket-batters-bowlers-th {
+    width: 40%;
+    background: lightgrey;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: darkslategrey;
+    font-size: 14px;
+}
+
+.cricket-batters-bowlers-stats-th {
+    width: 10%;
+    background: lightgrey;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+    color: darkslategrey;
+    font-size: 14px;
+}
+
+.cricket-batters-bowlers-td {
+    width: 40%;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.cricket-batters-bowlers-stats-td {
+    width: 10%;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+    font-size: 14px;
+}
+
+@media (orientation: portrait) {
+
+    .cricket-batters-bowlers-th {
+        width: 40%;
+        background: lightgrey;
+        text-align: left;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        font-size: 12px;
+    }
+
+    .cricket-batters-bowlers-stats-th {
+        width: 12%;
+        background: lightgrey;
+        text-align: left;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .cricket-batters-bowlers-td {
+        width: 40%;
+        text-align: left;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        color: white;
+    }
+
+    .cricket-batters-bowlers-stats-td {
+        width: 12%;
+        text-align: left;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        text-align: center;
+    }
+}
