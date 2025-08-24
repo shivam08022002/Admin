@@ -62,7 +62,9 @@ const ClientTable = ({ clients, user, edit, handleImmediateChildren, changeUserP
             col3: row.firstName,
             col4: row.balance.toFixed(2),
             col5: row.share,
-            col6: user.share
+            col6: user.share,
+            col7: row.iCasinoEnabled ? 'Yes' : 'No',
+            col8: row.iCasinoShare || 0
         }));
         setCsvPdfRows(csvPdfData);
     };
@@ -71,7 +73,7 @@ const ClientTable = ({ clients, user, edit, handleImmediateChildren, changeUserP
         e.preventDefault();
         const doc = new jsPDF();
         const tableColumn = csvPdfHeaders.map(header => header.label);
-        const tableRows = csvPdfRows.map(row => [row.col1, row.col2, row.col3, row.col4, row.col5, row.col6]);
+        const tableRows = csvPdfRows.map(row => [row.col1, row.col2, row.col3, row.col4, row.col5, row.col6, row.col7, row.col8]);
 
         doc.autoTable({
             head: [tableColumn],

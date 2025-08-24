@@ -1,0 +1,305 @@
+/* CollectionReportTable.css */
+
+.collection-report-table-container {
+    width: 100%;
+    overflow-x: auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0px;
+    min-width: 100%;
+}
+
+.collection-report-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 100%;
+}
+
+.collection-report-table th,
+.collection-report-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+    font-family: "Roboto", sans-serif;
+}
+
+.collection-report-table th {
+    background-color: #f8fafc;
+    font-weight: 600;
+    color: #374151;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.collection-report-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.collection-report-table td {
+    color: #4b5563;
+    font-size: 14px;
+}
+
+/* Amount columns alignment */
+.amount-column {
+    text-align: right;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 500;
+}
+
+.positive-amount {
+    color: #059669;
+}
+
+.negative-amount {
+    color: #dc2626;
+}
+
+/* Status styling */
+.status-active {
+    color: #059669;
+    font-weight: 600;
+}
+
+.status-inactive {
+    color: #dc2626;
+    font-weight: 600;
+}
+
+/* Link styling */
+.collection-report-name-link {
+    text-decoration: none;
+    color: #3b82f6;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.collection-report-name-link:hover {
+    color: #1d4ed8;
+}
+
+/* Pagination Styles */
+.collection-report-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    border-radius: 0 0 8px 8px;
+}
+
+.collection-report-pagination-button {
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background-color: white;
+    color: #374151;
+    padding: 8px 12px;
+    margin: 0 3px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.collection-report-pagination-button.active {
+    background-color: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+.collection-report-pagination-button:hover:not(:disabled) {
+    background-color: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.collection-report-pagination-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background-color: #f9fafb;
+}
+
+.collection-report-pagination-ellipsis {
+    border: none;
+    background: none;
+    color: #6b7280;
+    font-size: 14px;
+    padding: 8px 12px;
+    font-weight: 500;
+}
+
+/* Container layout */
+.collection-report-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.collection-container {
+    width: 32.5%;
+}
+
+.collection-container-match {
+    width: 49%;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .collection-report-table-container {
+        margin: 10px 0;
+        border-radius: 6px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        min-width: 100%;
+    }
+
+    .collection-report-table {
+        font-size: 12px;
+        min-width: 100%;
+    }
+
+    .collection-report-table th,
+    .collection-report-table td {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .collection-report-table th {
+        font-size: 11px;
+        padding: 10px 8px;
+    }
+
+    /* Stack table on very small screens */
+    .collection-report-table-container {
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .collection-report-pagination {
+        margin-top: 10px;
+        padding: 8px;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .collection-report-pagination-button {
+        font-size: 12px;
+        padding: 6px 10px;
+        margin: 2px;
+    }
+
+    .collection-report-pagination-ellipsis {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    /* Stack containers on mobile */
+    .collection-report-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .collection-container,
+    .collection-container-match {
+        width: 100%;
+    }
+
+    .collection-report-name-link {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .collection-report-table-container {
+        margin: 5px 0;
+        border-radius: 4px;
+        min-width: 100%;
+    }
+
+    .collection-report-table {
+        font-size: 11px;
+        min-width: 100%;
+    }
+
+    .collection-report-table th,
+    .collection-report-table td {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+
+    .collection-report-table th {
+        font-size: 10px;
+        padding: 8px 6px;
+    }
+
+    /* Reduce letter spacing on mobile */
+    .collection-report-table th {
+        letter-spacing: 0.2px;
+    }
+
+    .collection-report-pagination {
+        padding: 6px;
+        gap: 3px;
+    }
+
+    .collection-report-pagination-button {
+        font-size: 11px;
+        padding: 5px 8px;
+        margin: 1px;
+    }
+
+    .collection-report-pagination-ellipsis {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+
+    .collection-report-container {
+        gap: 10px;
+    }
+
+    .collection-report-name-link {
+        font-size: 11px;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .collection-report-table {
+        font-size: 13px;
+    }
+
+    .collection-report-table th,
+    .collection-report-table td {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .collection-report-table th {
+        font-size: 12px;
+    }
+
+    .collection-report-container {
+        gap: 15px;
+    }
+
+    .collection-report-name-link {
+        font-size: 12px;
+    }
+}

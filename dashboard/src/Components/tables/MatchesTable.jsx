@@ -108,7 +108,7 @@ const MatchesTable = ({ data, sport, liveMatches, isSmallScreen, rowsPerPage }) 
                                 ) : (
                                     <button
                                         className="cric-board-buttons board-buttons-nav-bar-dark-small2-live-report"
-                                        style={{ marginLeft: "5px", fontSize: "14px", fontWeight: "400" }}
+                                        style={{ marginLeft: "5px", fontSize: "10px", fontWeight: "400", backgroundColor: "#3f4d67", color: "#ffffff" }}
                                         onClick={(e) => openLiveReport(e, row.id, row.name)}
                                     >
                                         Live Report
@@ -120,7 +120,7 @@ const MatchesTable = ({ data, sport, liveMatches, isSmallScreen, rowsPerPage }) 
                                 <td className="matches-table-custom-td">
                                     <button
                                         className="cric-board-buttons board-buttons-nav-bar-dark-small2-live-report"
-                                        style={{ marginLeft: "5px", fontSize: "14px", fontWeight: "400" }}
+                                        style={{ marginLeft: "5px", fontSize: "10px", fontWeight: "400", backgroundColor: "#3f4d67", color: "#ffffff" }}
                                         onClick={(e) => openLiveReport(e, row.id, row.name)}
                                     >
                                         Live Report

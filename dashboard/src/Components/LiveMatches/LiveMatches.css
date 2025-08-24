@@ -14,25 +14,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff;
-    border-bottom: 2px solid #ddd;
-    padding: 8px 0;
-    gap: 0;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 6px;
+    gap: 4px;
+    margin: 20px 10px;
+    border: 1px solid #e0e3e5;
+    position: relative;
+    overflow: hidden;
 }
 
 .tab-button {
     flex: 1;
-    background: #f1f1f1;
+    background: transparent;
     border: none;
     outline: none;
-    padding: 12px 0;
+    padding: 12px 16px;
     cursor: pointer;
     font-size: 16px;
-    color: #333;
+    color: #6c757d;
     font-weight: 500;
     text-align: center;
     transition: all 0.3s ease;
-    border-bottom: 3px solid transparent;
+    border-radius: 6px;
+    position: relative;
+    z-index: 2;
 }
 
 .tab-button:last-child {
@@ -40,14 +46,39 @@
 }
 
 .tab-button:hover {
-    background-color: #e9ecef;
-    color: #000;
+    background: #e9ecef;
+    color: #495057;
 }
 
 .tab-button.active-tab {
-    border-bottom: 3px solid #0056b3;
-    font-weight: bold;
-    color: #0056b3;
+    background: transparent;
+    color: #169AAF;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Sliding indicator */
+.match-tabs::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: calc(50% - 2px);
+    height: calc(100% - 12px);
+    color: #ffffff;
+    background: #169AAF;
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+/* Position the sliding indicator based on active tab */
+.match-tabs.tab-1::before {
+    transform: translateX(0);
+}
+
+.match-tabs.tab-2::before {
+    transform: translateX(calc(100% + 4px));
 }
 
 
@@ -109,14 +140,25 @@
         flex-direction: row;
         gap: 4px;
         text-align: center;
-        padding: 10px;
+        padding: 4px;
+        margin: 15px 8px;
+        border-radius: 6px;
+    }
+
+    .match-tabs::before {
+        top: 4px;
+        left: 4px;
+        width: calc(50% - 2px);
+        height: calc(100% - 8px);
+        border-radius: 4px;
     }
 
     .tab-button {
         width: 100%;
         font-size: 14px;
         text-align: center;
-        padding: 8px 0;
+        padding: 10px 12px;
+        border-radius: 4px;
     }
 
     .cric-agent-matches-dashboard-container {

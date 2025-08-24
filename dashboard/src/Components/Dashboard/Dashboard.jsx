@@ -82,6 +82,7 @@ const Dashboard = () => {
   const { notificationMessage } = state || {};
   const [openDialog, setOpenDialog] = useState(!!notificationMessage);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingUserCounts, setIsLoadingUserCounts] = useState(false);
   const [dashboardData, setDashboardData] = useState({
     balance: 0,
     activeUsers: {
@@ -108,6 +109,16 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchBalance();
+    fetchActiveUserCounts();
+  }, []);
+
+  // Refresh user counts every 5 minutes
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchActiveUserCounts();
+    }, 5 * 60 * 1000); // 5 minutes
+
+    return () => clearInterval(interval);
   }, []);
 
   const fetchBalance = async () => {
@@ -132,6 +143,60 @@ const Dashboard = () => {
       console.error("Error fetching balance:", err);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const fetchActiveUserCounts = async () => {
+    setIsLoadingUserCounts(true);
+    try {
+      const api = httpHelpers();
+      const user = TokenService.getUser();
+      
+      console.log("Current User:", user);
+      console.log("Current User ID:", user?.userId);
+      console.log("Current User Entity Type:", user?.entityType);
+      
+      // Use getImmediateChildren API to get all user types in one call
+      const response = await api.get(`beta/getImmediateChildren?agentId=${user.userId}`);
+      
+      console.log("Dashboard API Response:", response);
+      console.log("Dashboard API Data:", response?.data);
+      
+      if (response?.data) {
+        const activeUsers = { sm: 0, sc: 0, sst: 0, stockist: 0, agents: 0 };
+        
+        // Count all users for each type (not just ACTIVE ones)
+        if (response.data.submaster && Array.isArray(response.data.submaster)) {
+          activeUsers.sm = response.data.submaster.length;
+        }
+        
+        if (response.data.subcompany && Array.isArray(response.data.subcompany)) {
+          activeUsers.sc = response.data.subcompany.length;
+        }
+        
+        if (response.data.superstockist && Array.isArray(response.data.superstockist)) {
+          activeUsers.sst = response.data.superstockist.length;
+        }
+        
+        if (response.data.stockist && Array.isArray(response.data.stockist)) {
+          activeUsers.stockist = response.data.stockist.length;
+        }
+        
+        if (response.data.agent && Array.isArray(response.data.agent)) {
+          activeUsers.agents = response.data.agent.length;
+        }
+        
+        setDashboardData(prev => ({
+          ...prev,
+          activeUsers
+        }));
+        
+        console.log("Active User Counts:", activeUsers);
+      }
+    } catch (err) {
+      console.error("Error fetching active user counts:", err);
+    } finally {
+      setIsLoadingUserCounts(false);
     }
   };
 
@@ -185,48 +250,47 @@ const Dashboard = () => {
       color: "#009688",
       icon: FaPercent
     },
-    // Active Users by type (matching sidebar subitems)
+    // Users by type (matching sidebar subitems)
     {
-      title: "Active SM",
-      value: dashboardData.activeUsers.sm,
-      color: "#8bc34a",
+      title: "Total Users",
+      value: isLoadingUserCounts ? "Loading..." : (dashboardData.activeUsers.sm + dashboardData.activeUsers.sc + dashboardData.activeUsers.sst + dashboardData.activeUsers.stockist + dashboardData.activeUsers.agents),
+      color: "#03c000",
       icon: FaUsers
     },
     {
-      title: "Active SC",
-      value: dashboardData.activeUsers.sc,
+      title: "SM",
+      value: isLoadingUserCounts ? "Loading..." : dashboardData.activeUsers.sm,
+      color: "#9c34a8",
+      icon: FaUsers
+    },
+    {
+      title: "SC",
+      value: isLoadingUserCounts ? "Loading..." : dashboardData.activeUsers.sc,
       color: "#00bcd4",
       icon: FaUsers
     },
     {
-      title: "Active SST",
-      value: dashboardData.activeUsers.sst,
+      title: "SST",
+      value: isLoadingUserCounts ? "Loading..." : dashboardData.activeUsers.sst,
       color: "#ab47bc",
       icon: FaUsers
     },
     {
-      title: "Active Stockist",
-      value: dashboardData.activeUsers.stockist,
+      title: "Stockist",
+      value: isLoadingUserCounts ? "Loading..." : dashboardData.activeUsers.stockist,
       color: "#ff7043",
       icon: FaUsers
     },
     {
-      title: "Active Agents",
-      value: dashboardData.activeUsers.agents,
+      title: "Agents",
+      value: isLoadingUserCounts ? "Loading..." : dashboardData.activeUsers.agents,
       color: "#607d8b",
-      icon: FaUsers
-    },
-    {
-      title: "Total Active Users",
-      value: dashboardData.activeUsers.sm + dashboardData.activeUsers.sc + dashboardData.activeUsers.sst + dashboardData.activeUsers.stockist + dashboardData.activeUsers.agents,
-      color: "#ff9800",
       icon: FaUsers
     },
   ];
 
   return (
     <Box sx={{ p: 3 }}>
-
       <Grid container spacing={3} alignItems="stretch">
         {dashboardItems.map((item, index) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={index} sx={{ display: 'flex', width: { xs: '100%', sm: 'auto' }, p: 0 }}>

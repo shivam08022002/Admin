@@ -179,7 +179,7 @@ export default function MatchScreenCricket({ role, logout, isSmallScreen }) {
 
         // Clean up the interval when the component unmounts
         return () => clearInterval(intervalId);
-    }, []); // Empty dependency array since we're using page reload
+    }, [id, sport]); // Add id and sport to dependency array to refetch when match changes
 
     const toggleScoreStream = (e, state) => {
         if (state === 0) {

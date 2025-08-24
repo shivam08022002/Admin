@@ -39,7 +39,7 @@ export const NAVIGATION = [
       {
         segment: 'create',
         title: 'Create Users',
-        path: '/users/create'
+        path: '/register/user'
       },
       {
         segment: 'sm',
@@ -74,8 +74,28 @@ export const NAVIGATION = [
     segment: 'ledgers',
     title: 'Ledgers',
     icon: LedgerIcon,
-    path: '/ledgers'
-    
+    children: [
+      {
+        segment: 'my-ledger',
+        title: 'My Ledger',
+        path: '/ledgers/my-ledger'
+      },
+      {
+        segment: 'profit-loss',
+        title: 'Profit & Loss',
+        path: '/ledgers/profit-loss'
+      },
+      {
+        segment: 'coin-history',
+        title: 'Coin History',
+        path: '/ledgers/coin-history'
+      },
+      {
+        segment: 'lena-dena',
+        title: 'Lena aur Dena',
+        path: '/ledgers/lena-dena'
+      }
+    ]
   },
   {
     segment: 'reports',
@@ -105,18 +125,6 @@ export const NAVIGATION = [
     title: 'Block Market',
     icon: BlockIcon,
     path: '/block-market'
-  },
-  {
-    segment: 'profitLoss',
-    title: 'Profit & Loss',
-    icon: ProfitLossIcon,
-    path: '/profit-loss'
-  },
-  {
-    segment: 'coinHistory',
-    title: 'Coin History',
-    icon: CoinIcon,
-    path: '/coin-history'
   },
   {
     kind: 'divider'

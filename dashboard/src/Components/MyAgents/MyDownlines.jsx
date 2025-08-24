@@ -44,6 +44,10 @@ export default function MyDownlines({ role, logout, isSmallScreen }) {
         agentType = "agent";
         addType = "Agent";
         tableHeader = "Agent";
+    } else if (href.includes("clients") || location.pathname.includes("/users/clients")) {
+        agentType = "user";
+        addType = "User";
+        tableHeader = "User";
     }
     console.log("agentType", agentType, "pathname:", location.pathname);
     

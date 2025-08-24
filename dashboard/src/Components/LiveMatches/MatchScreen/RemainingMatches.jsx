@@ -1,5 +1,6 @@
 import React from 'react';
 import Clock_Icon from '../../../assets/clock_icon.svg';
+import { FaTv } from 'react-icons/fa';
 import './RemainingMatches.css';
 
 const RemainingMatches = ({ matches, currentMatchId, sport, currentMatchStatus }) => {
@@ -74,6 +75,7 @@ const RemainingMatches = ({ matches, currentMatchId, sport, currentMatchStatus }
                         <div className="remaining-match-item-content">
                             <div className="remaining-match-title-section">
                                 <h4 className="remaining-match-title">{match.name}</h4>
+                                <FaTv className="tv-icon" />
                                 {match.id && (
                                     <span className="remaining-match-id">ID: {match.id}</span>
                                 )}

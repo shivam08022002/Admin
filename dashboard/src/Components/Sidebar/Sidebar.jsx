@@ -30,7 +30,8 @@ import {
   FaCog,
   FaLock,
   FaPercent,
-  FaSignOutAlt
+  FaSignOutAlt,
+  FaDiceFive,   
 } from 'react-icons/fa';
 import { VscChromeClose } from "react-icons/vsc";
 import './Sidebar.css';
@@ -56,7 +57,7 @@ function Sidebar({ collapsed, toggleSidebar, mobileOpen, handleMobileClose, styl
         const api = httpHelpers();
         const response = await api.get("beta/getBalance");
         if (response?.data) setBalance(response.data);
-      } catch (err) {
+      } catch {
         if (user?.balance) setBalance(user.balance);
       }
     };
@@ -65,9 +66,6 @@ function Sidebar({ collapsed, toggleSidebar, mobileOpen, handleMobileClose, styl
 
   const menuItems = [
     { text: 'Dashboard', icon: <FaHome />, path: '/dashboard' },
-    { text: 'Live Matches', icon: <MdSportsCricket/>, path: '/live-matches' },
-    { text: 'Complete Matches', icon: <MdSportsCricket/>, path: '/complete-matches' },
-
     {
       text: 'Users', icon: <FaUsers />, subItems: [
         { text: 'My Cients', icon: <FaUser />, path: '/users/clients' },
@@ -78,22 +76,25 @@ function Sidebar({ collapsed, toggleSidebar, mobileOpen, handleMobileClose, styl
         { text: 'Agents', icon: <FaUsers />, path: '/users/agents' }
       ]
     },
+    { text: 'Live Matches', icon: <MdSportsCricket/>, path: '/live-matches' },
+    { text: 'Complete Matches', icon: <MdSportsCricket/>, path: '/complete-matches' },
+    { text: 'Live Casino', icon: <FaDiceFive />, path: '/livecasino' },
+    { text: 'Virtual Casino', icon: <FaDiceFive />, path: '/virtualcasino' },
+    { text: 'Search Casino Result', icon: <FaDiceFive />, path: '/searchcasinoresult' },
+    
     {
       text: 'Ledgers',
       icon: <FaBook />,
       submenu: [
-        { text: 'My Ledgers', icon: <FaBook />, path: '/ledgers/my-ledgers' },
-        { text: 'Lena aur Dena', icon: <FaWallet />, path: '/ledgers/lena-dena' }
+        { text: 'My Ledgers', icon: <FaBook />, path: '/ledgers/my-ledger' },
+        { text: 'Lena aur Dena', icon: <FaWallet />, path: '/ledgers/lena-dena' },
       ]
     },
-    { text: 'Report', icon: <FaChartLine />, path: '/report' },
-    { text: 'Dead Users', icon: <FaUserSlash />, path: '/dead-users' },
     { text: 'Block Market', icon: <FaBan />, path: '/block-market' },
-    { text: 'Profit & Loss', icon: <FaWallet />, path: '/profit-loss' },
-    { text: 'Coin History', icon: <FaHistory />, path: '/coin-history' },
+    { text: 'Profit & Loss', icon: <FaWallet />, path: '/ledgers/profit-loss' },
+    { text: 'Coin History', icon: <FaHistory />, path: '/ledgers/coin-history' },
     { text: 'Search User', icon: <FaSearch />, path: '/search-user' },
     { text: 'Settings', icon: <FaCog />, path: '/settings' },
-    { text: 'Commission & Limits', icon: <FaPercent />, path: '/commissionlimits' },
     { text: 'Change Password', icon: <FaLock />, path: '/change-password' },
     { text: 'Logout', icon: <FaSignOutAlt />, path: '/logout' },
   ];
@@ -162,10 +163,10 @@ function Sidebar({ collapsed, toggleSidebar, mobileOpen, handleMobileClose, styl
           ...(style || {}),
         }}
       >
-        <div className="drawer-header" style={{ display: 'flex', justifyContent: 'space-between', padding: '0 8px', minHeight: 64, position: 'relative',zIndex: 2000 }}>
+        <div className="drawer-header" style={{ display: 'flex', justifyContent: 'space-between', padding: '0 8px', minHeight: 60, position: 'relative', zIndex: 2000 }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', flex: 1, gap: 8 }}>
-            <span style={{ fontWeight: 600, fontSize: 16, color: '#fff', lineHeight: 1 , marginLeft: 8}}>{userId}</span>
-            <span style={{ fontWeight: 500, fontSize: 15, color: '#A9B7D0', lineHeight: 1, marginLeft: 6 }}>₹ {Number(balance).toFixed(2)}</span>
+            <span style={{ fontWeight: 600, fontSize: 15, color: '#fff', lineHeight: 1 , marginLeft: 8}}>{userId}</span>
+            <span style={{ fontWeight: 500, fontSize: 14, color: '#A9B7D0', lineHeight: 1, marginLeft: 6 }}>₹ {Number(balance).toFixed(2)}</span>
           </div>
           <div style={{ width: 24 }} />
           <IconButton onClick={isMobile ? handleMobileClose : toggleSidebar} className="toggle-button" sx={{ color: '#A9B7D0', position: 'absolute', right: 8, top: '50%', transform: 'translateY(-50%)' }}>
@@ -255,11 +256,11 @@ function Sidebar({ collapsed, toggleSidebar, mobileOpen, handleMobileClose, styl
         ...(style || {}),
       }}
     >
-      <div className="drawer-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 8px 0 16px', minHeight: 64 , position: 'relative', zIndex: 2000 }}>
+      <div className="drawer-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 8px 0 16px', minHeight: 60 , position: 'relative', zIndex: 2000 }}>
         {!collapsed && (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', flex: 1, gap: 8 }}>
-            <span style={{ fontWeight: 600, fontSize: 16, color: '#fff', lineHeight: 1 }}>{userId}</span>
-            <span style={{ fontWeight: 500, fontSize: 15, color: '#A9B7D0', lineHeight: 1 }}>₹ {Number(balance).toFixed(2)}</span>
+            <span style={{ fontWeight: 600, fontSize: 15, color: '#fff', lineHeight: 1 }}>{userId}</span>
+            <span style={{ fontWeight: 500, fontSize: 14, color: '#A9B7D0', lineHeight: 1 }}>₹ {Number(balance).toFixed(2)}</span>
           </div>
         )}
         <IconButton onClick={toggleSidebar} className="toggle-button" sx={{ color: '#A9B7D0', ml: 1 }}>

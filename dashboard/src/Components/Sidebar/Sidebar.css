@@ -169,3 +169,20 @@
   scrollbar-width: none;  /* Firefox */
   display: none ;
 }
+
+/* Casino icon color states */
+.menu-button:not(.active) img[src*="casino-game.svg"] {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(8%) saturate(1034%) hue-rotate(202deg) brightness(89%) contrast(86%) !important;
+}
+
+.menu-button.active img[src*="casino-game.svg"] {
+  filter: brightness(0) saturate(100%) invert(100%) !important;
+}
+
+.submenu-item:not(.active) img[src*="casino-game.svg"] {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(8%) saturate(1034%) hue-rotate(202deg) brightness(89%) contrast(86%) !important;
+}
+
+.submenu-item.active img[src*="casino-game.svg"] {
+  filter: brightness(0) saturate(100%) invert(100%) !important;
+}

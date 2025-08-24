@@ -1,0 +1,350 @@
+/* Register Component Styles */
+.register-table-title-container {
+  background: #f8f9fa;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.register-main-container {
+  min-height: calc(100vh - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.register-card {
+  background: transparent;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.register-card-content {
+  padding: 0;
+}
+
+/* Form Layout */
+.register-form-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  align-items: start;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.register-form-row:hover {
+  transition: transform 0.2s ease;
+}
+
+.register-label-container {
+  display: flex;
+  align-items: center;
+}
+
+.register-form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+  white-space: nowrap;
+  position: relative;
+  padding-left: 8px;
+}
+
+/* Removed the left border from label headings */
+
+.register-input-container {
+  position: relative;
+}
+
+/* Input Styling */
+.register-input-container input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background: #ffffff;
+  color: #2d3748;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.register-input-container input:focus {
+  border-color: #1593A7;
+  outline: none;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(21, 147, 167, 0.1);
+}
+
+.register-input-container input:hover:not(:disabled):not(:focus) {
+  border-color: #1593A7;
+}
+
+.register-input-container input:disabled {
+  background: #f7fafc;
+  color: #a0aec0;
+  cursor: not-allowed;
+  border-color: #e2e8f0;
+}
+
+.register-input-container input.error {
+  border-color: #e53e3e;
+}
+
+.register-input-container input::placeholder {
+  color: #a0aec0;
+}
+
+/* Note Styling */
+.register-note {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: rgba(21, 147, 167, 0.05);
+  border-left: 3px solid #1593A7;
+  border-radius: 8px;
+  min-width: 0;
+}
+
+.register-note span {
+  font-size: 12px;
+  color: #4a5568;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+/* Toggle Button Styling */
+.register-toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px 0;
+}
+
+/* Custom toggle button styling */
+.register-toggle-container .react-toggle-button {
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  background: #f7fafc !important;
+  transition: all 0.3s ease !important;
+}
+
+.register-toggle-container .react-toggle-button[data-state="true"] {
+  background: #1593A7 !important;
+  border-color: #1593A7 !important;
+}
+
+.register-toggle-container .react-toggle-button:hover {
+  border-color: #1593A7 !important;
+}
+
+/* Password Toggle Icon */
+.register-password-toggle {
+  font-size: 16px;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.register-password-toggle:hover {
+  opacity: 1;
+  background: rgba(21, 147, 167, 0.1);
+  transform: scale(1.1);
+}
+
+/* Error Messages */
+.register-alert {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  border: none;
+}
+
+.register-alert-danger {
+  background: #fed7d7;
+  color: #c53030;
+  border-left: 4px solid #e53e3e;
+}
+
+.register-alert-success {
+  background: #c6f6d5;
+  color: #22543d;
+  border-left: 4px solid #38a169;
+}
+
+/* Button Styling */
+.register-button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  /* padding-top: 1rem; */
+  /* border-top: 1px solid #e2e8f0; */
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.register-button {
+  display: flex;
+  align-self: start;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  border: none;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.register-button-cancel {
+  background: #e2e8f0;
+  color: #4a5568;
+  padding: 12px 60px;
+  /* border: 2px solid #e2e8f0; */
+}
+
+.register-button-cancel:hover {
+  background: #cbd5e0;
+  border-color: #1593A7;
+}
+
+.register-button-submit {
+  background: #3f4d67 !important;
+  color: white;
+}
+
+.register-button-submit:hover:not(:disabled) {
+  background: #0f7a8a;
+}
+
+.register-button-submit:disabled {
+  background: #a0aec0;
+  cursor: not-allowed;
+}
+
+.register-button-primary {
+  background: #1593A7;
+  color: white;
+}
+
+.register-button-primary:hover {
+  background: #0f7a8a;
+}
+
+/* Form Group Spacing */
+.register-form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  animation: registerFadeInUp 0.6s ease-out;
+}
+
+.register-form-group:nth-child(even) {
+  animation-delay: 0.1s;
+}
+
+.register-form-group:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+/* Section dividers */
+.register-form-group:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: -0.75rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e2e8f0;
+  opacity: 0.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-main-container {
+    min-height: calc(100vh - 50px);
+  }
+  
+  .register-form-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .register-button-group {
+    flex-direction: row;
+  }
+  
+  .register-button {
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-note {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Animation for form elements */
+@keyframes registerFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation for form groups */
+.register-form-group:nth-child(1) { animation-delay: 0.1s; }
+.register-form-group:nth-child(2) { animation-delay: 0.2s; }
+.register-form-group:nth-child(3) { animation-delay: 0.3s; }
+.register-form-group:nth-child(4) { animation-delay: 0.4s; }
+.register-form-group:nth-child(5) { animation-delay: 0.5s; }
+.register-form-group:nth-child(6) { animation-delay: 0.6s; }
+.register-form-group:nth-child(7) { animation-delay: 0.7s; }
+.register-form-group:nth-child(8) { animation-delay: 0.8s; }
+.register-form-group:nth-child(9) { animation-delay: 0.9s; }
+.register-form-group:nth-child(10) { animation-delay: 1.0s; }
+
+/* Success message styling */
+.register-card-content label[style*="fontSize: 30px"] {
+  color: #1593A7;
+  text-align: center;
+  display: block;
+  margin: 2rem 0;
+  animation: registerFadeInUp 0.8s ease-out;
+}

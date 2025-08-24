@@ -1,0 +1,357 @@
+/* src/DynamicTable.css */
+.company-len-den-table-root {
+    background: white;
+    overflow-x: auto;
+    padding: 20px;
+    padding-bottom: 0;
+    scrollbar-width: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.company-len-den-table-container {
+    border-radius: 8px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0px;
+    width: 100%;
+    min-width: 800px;
+    scrollbar-width: none;
+    border: 2px solid #dee2e6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.company-len-den-table {
+    border-collapse: collapse;
+    scrollbar-width: none;
+    width: 100%;
+    border: 1px solid #dee2e6;
+}
+
+.company-len-den-table th,
+.company-len-den-table td {
+    padding: 12px 8px;
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2c3e50;
+    font-size: 13px;
+    font-weight: 400;
+    border: 1px solid #e9ecef;
+    vertical-align: middle;
+}
+
+.company-len-den-table th {
+    background: #f8f9fa;
+    color: #495057;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    height: 48px;
+    padding: 12px 8px;
+    border: 1px solid #dee2e6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.company-len-den-table>tbody>tr {
+    border-top: 1px solid #e9ecef;
+    transition: all 0.2s ease-in-out;
+}
+
+.company-len-den-table>tbody>tr:hover {
+    background: #f8f9fa;
+    color: #2c3e50;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.company-len-den-table td {
+    color: #495057;
+}
+
+/* Group header styling */
+.company-len-den-table>tbody>tr[style*="background-color: #f5f5f5"] {
+    background: #e3f2fd !important;
+    border-left: 4px solid #2196f3;
+    font-weight: 600;
+    color: #1565c0;
+    border-top: 2px solid #bbdefb;
+    border-bottom: 2px solid #bbdefb;
+}
+
+.company-len-den-table>tbody>tr[style*="background-color: #f5f5f5"]:hover {
+    background: #bbdefb !important;
+    color: #0d47a1;
+}
+
+/* Clock icon styling */
+.clock-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+    vertical-align: middle;
+    opacity: 0.7;
+}
+
+/* Pagination Styles */
+.company-len-den-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    border-radius: 0 0 8px 8px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.company-len-den-pagination-button {
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    background: white;
+    color: #495057;
+    padding: 8px 12px;
+    margin: 0 3px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    user-select: none;
+    transition: all 0.2s ease-in-out;
+    min-width: 40px;
+}
+
+.company-len-den-pagination-button.active {
+    background: #3f4d67;
+    color: white;
+    border-color: #0056b3;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+.company-len-den-pagination-button:hover:not(:disabled) {
+    background: #e9ecef;
+    border-color: #adb5bd;
+    transform: translateY(-1px);
+}
+
+.company-len-den-pagination-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background: #f8f9fa;
+}
+
+.company-len-den-pagination-ellipsis {
+    border: none;
+    background: none;
+    color: #6c757d;
+    font-size: 13px;
+    padding: 8px 12px;
+    font-weight: 600;
+}
+
+.collection-report-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.th-statement {
+    text-align: left;
+}
+
+.td-statement-amount {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.company-len-den-table th,
+.company-len-den-table td {
+    white-space: nowrap;
+}
+
+/* Amount columns styling */
+.company-len-den-table td:nth-child(4),
+.company-len-den-table td:nth-child(5),
+.company-len-den-table td:nth-child(6) {
+    text-align: right;
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+}
+
+.company-len-den-table th:nth-child(4),
+.company-len-den-table th:nth-child(5),
+.company-len-den-table th:nth-child(6) {
+    text-align: right;
+}
+
+/* Date column styling */
+.company-len-den-table td:first-child {
+    font-weight: 500;
+    color: #495057;
+}
+
+/* Entry ID column styling */
+.company-len-den-table td:nth-child(2) {
+    font-family: 'Courier New', monospace;
+    color: #6c757d;
+}
+
+/* Note column styling */
+.company-len-den-table td:last-child {
+    color: #6c757d;
+    font-style: italic;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Media query for smaller screens */
+@media (orientation: portrait) {
+    .company-len-den-table-root {
+        padding: 10px;
+    }
+
+    .company-len-den-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        min-width: 660px;
+        border-radius: 6px;
+    }
+
+    .company-len-den-table {
+        font-size: 12px;
+    }
+
+    .company-len-den-table th,
+    .company-len-den-table td {
+        padding: 10px 6px;
+    }
+
+    .company-len-den-pagination {
+        position: static;
+        overflow-x: auto;
+        padding: 10px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .company-len-den-pagination-button {
+        font-size: 12px;
+        padding: 6px 10px;
+        min-width: 35px;
+    }
+
+    .collection-report-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+    .company-len-den-table-root {
+        padding: 0px;
+    }
+    
+    .company-len-den-table-container {
+        min-width: 100%;
+        border-radius: 0px;
+        overflow-x: auto;
+        border: 1px solid #dee2e6;
+    }
+    
+    .company-len-den-table th,
+    .company-len-den-table td {
+        padding: 8px 4px;
+        font-size: 11px;
+    }
+    
+    .company-len-den-pagination {
+        padding: 8px;
+        flex-direction: row;
+        gap: 6px;
+    }
+    
+    .company-len-den-pagination-button {
+        font-size: 11px;
+        padding: 6px 8px;
+        min-width: 30px;
+        margin: 2px;
+    }
+    
+    /* Mobile pagination layout */
+    .company-len-den-pagination > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+    
+    .company-len-den-pagination > div > button,
+    .company-len-den-pagination > div > span {
+        font-size: 11px;
+        padding: 6px 8px;
+        min-width: 28px;
+    }
+}
+
+/* Responsive design for very small screens */
+@media (max-width: 480px) {
+    .company-len-den-table-root {
+        padding: 0px;
+    }
+    
+    .company-len-den-table-container {
+        min-width: 100%;
+        border-radius: 0px;
+        border: 1px solid #dee2e6;
+    }
+    
+    .company-len-den-table th,
+    .company-len-den-table td {
+        padding: 6px 3px;
+        font-size: 10px;
+    }
+    
+    .company-len-den-pagination {
+        padding: 6px;
+        gap: 4px;
+    }
+    
+    .company-len-den-pagination-button {
+        font-size: 10px;
+        padding: 4px 6px;
+        min-width: 25px;
+        margin: 1px;
+    }
+    
+    /* Very small screen pagination */
+    .company-len-den-pagination > div {
+        gap: 2px;
+    }
+    
+    .company-len-den-pagination > div > button,
+    .company-len-den-pagination > div > span {
+        font-size: 10px;
+        padding: 4px 6px;
+        min-width: 24px;
+    }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+    .company-len-den-pagination {
+        flex-direction: row;
+        gap: 8px;
+    }
+    
+    .company-len-den-pagination > div {
+        margin: 0 10px;
+    }
+}

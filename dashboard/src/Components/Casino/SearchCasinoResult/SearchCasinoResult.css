@@ -1,0 +1,981 @@
+.search-casino-result-container {
+  font-family: "Roboto Condensed", sans-serif;
+  padding: 20px;
+  background: #f8f9fa;
+  min-height: 100vh;
+  color: #000;
+}
+
+.search-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: flex-end;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.search-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.search-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+.search-input,
+.search-select {
+  padding: 10px 12px;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+  min-width: 200px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  touch-action: manipulation;
+}
+
+.search-input:focus,
+.search-select:focus {
+  outline: none;
+  border-color: #1FABB5;
+  box-shadow: 0 0 0 3px rgba(31, 171, 181, 0.1);
+}
+
+.search-input:disabled,
+.search-select:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.search-button {
+  background: linear-gradient(135deg, #1FABB5 0%, #0D8A94 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.search-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0D8A94 0%, #1FABB5 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(31, 171, 181, 0.3);
+}
+
+.search-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid #f5c6cb;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* Inline Result Styles */
+.game-result-container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-header {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.result-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.result-round-id {
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-header {
+  background: #0288d1;
+  color: white;
+  padding: 16px 20px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.modal-close:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.modal-round-id {
+  padding: 16px 20px 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+/* Card Styles */
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.three-card-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  gap: 15px;
+}
+
+.single-card-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.card-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+.card-image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.card-image {
+  width: 60px;
+  height: 84px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.card-placeholder {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+
+.winner-icon {
+  position: absolute;
+  left: -35px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #28a745;
+}
+
+/* Result Info Styles */
+.result-info {
+  background: #f8f9fa;
+  border-radius: 6px;
+  margin: 0 20px 20px;
+  padding: 16px;
+  border: 1px solid #e9ecef;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row span:first-child {
+  color: #666;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.info-row span:last-child {
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Teen Patti Styles */
+.teenpatti-players {
+  padding: 0 20px;
+}
+
+.player-row {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  margin: 12px 0;
+  padding: 12px 16px;
+  min-height: 80px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.player-label {
+  min-width: 100px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+}
+
+.player-cards {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.player-trophy {
+  min-width: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.teenpatti-card {
+  width: 50px;
+  height: 70px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  overflow: hidden;
+}
+
+.teenpatti-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.teenpatti-details {
+  background: #f8f9fa;
+  border-radius: 6px;
+  margin: 16px 20px 20px;
+  padding: 16px;
+  border: 1px solid #e9ecef;
+}
+
+.detail-row {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.winner-name {
+  color: #333;
+  font-weight: 700;
+}
+
+.pair-plus {
+  color: #333;
+  font-weight: 700;
+}
+
+/* Andar Bahar Styles */
+.ab-container {
+  padding: 0 20px;
+}
+
+.ab-section {
+  margin-bottom: 20px;
+}
+
+.ab-label {
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.ab-cards {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ab-card {
+  width: 45px;
+  height: 63px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  overflow: hidden;
+}
+
+.ab-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.ab-winner {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px;
+  color: #0288d1;
+}
+
+/* Card 32 Styles */
+.card32-players {
+  padding: 0 20px;
+}
+
+.card32-player-row {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  margin: 8px 0;
+  padding: 12px 16px;
+  min-height: 70px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card32-player-name {
+  min-width: 120px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+}
+
+.card32-player-cards {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.card32-trophy {
+  min-width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card32-card {
+  width: 40px;
+  height: 56px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  overflow: hidden;
+}
+
+.card32-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.card32-winner-section {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 20px;
+  color: #0288d1;
+}
+
+.card32-winner-name {
+  color: #333;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-casino-result-container {
+    padding: 15px;
+  }
+
+  .search-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .search-input-group {
+    width: 100%;
+  }
+
+  .search-input,
+  .search-select {
+    min-width: auto;
+    width: 100%;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  .search-button {
+    width: 100%;
+    padding: 15px 24px;
+    font-size: 16px;
+  }
+
+  .game-result-container {
+    padding: 15px;
+    margin-top: 15px;
+  }
+
+  .result-header h2 {
+    font-size: 16px;
+  }
+
+  .result-round-id {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .card-container,
+  .three-card-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .single-card-container {
+    padding: 15px;
+  }
+
+  .card-image {
+    width: 50px;
+    height: 70px;
+  }
+
+  .card-label {
+    font-size: 13px;
+  }
+
+  .winner-icon {
+    left: -25px;
+    font-size: 20px;
+  }
+
+  .result-info {
+    margin: 0 15px 15px;
+    padding: 12px;
+  }
+
+  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 6px 0;
+  }
+
+  .info-row span:first-child,
+  .info-row span:last-child {
+    font-size: 13px;
+  }
+
+  /* Teen Patti Mobile Styles */
+  .teenpatti-players {
+    padding: 0 15px;
+  }
+
+  .player-row {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 15px;
+    min-height: auto;
+  }
+
+  .player-label {
+    min-width: auto;
+    font-size: 14px;
+  }
+
+  .player-cards {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .teenpatti-card {
+    width: 40px;
+    height: 56px;
+  }
+
+  .teenpatti-details {
+    margin: 12px 15px 15px;
+    padding: 12px;
+  }
+
+  .detail-row {
+    font-size: 14px;
+  }
+
+  /* Andar Bahar Mobile Styles */
+  .ab-container {
+    padding: 0 15px;
+  }
+
+  .ab-cards {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .ab-card {
+    width: 35px;
+    height: 49px;
+  }
+
+  .ab-winner {
+    margin: 15px;
+    font-size: 14px;
+  }
+
+  /* Card 32 Mobile Styles */
+  .card32-players {
+    padding: 0 15px;
+  }
+
+  .card32-player-row {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 12px;
+    min-height: auto;
+  }
+
+  .card32-player-name {
+    min-width: auto;
+    font-size: 14px;
+  }
+
+  .card32-player-cards {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card32-trophy {
+    min-width: auto;
+    justify-content: center;
+  }
+
+  .card32-card {
+    width: 30px;
+    height: 42px;
+  }
+
+  .card32-winner-section {
+    margin: 15px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-casino-result-container {
+    padding: 10px;
+  }
+
+  .search-controls {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .search-input,
+  .search-select {
+    padding: 12px 10px;
+    font-size: 16px;
+  }
+
+  .search-button {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+
+  .game-result-container {
+    padding: 12px;
+    margin-top: 12px;
+  }
+
+  .result-header h2 {
+    font-size: 15px;
+  }
+
+  .result-round-id {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .card-container,
+  .three-card-container {
+    gap: 15px;
+    padding: 12px;
+  }
+
+  .single-card-container {
+    padding: 12px;
+  }
+
+  .card-image {
+    width: 45px;
+    height: 63px;
+  }
+
+  .card-label {
+    font-size: 12px;
+  }
+
+  .winner-icon {
+    left: -20px;
+    font-size: 18px;
+  }
+
+  .result-info {
+    margin: 0 12px 12px;
+    padding: 10px;
+  }
+
+  .info-row {
+    padding: 5px 0;
+  }
+
+  .info-row span:first-child,
+  .info-row span:last-child {
+    font-size: 12px;
+  }
+
+  /* Teen Patti Small Mobile */
+  .teenpatti-players {
+    padding: 0 12px;
+  }
+
+  .player-row {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .player-label {
+    font-size: 13px;
+  }
+
+  .teenpatti-card {
+    width: 35px;
+    height: 49px;
+  }
+
+  .teenpatti-details {
+    margin: 10px 12px 12px;
+    padding: 10px;
+  }
+
+  .detail-row {
+    font-size: 13px;
+  }
+
+  /* Andar Bahar Small Mobile */
+  .ab-container {
+    padding: 0 12px;
+  }
+
+  .ab-card {
+    width: 30px;
+    height: 42px;
+  }
+
+  .ab-winner {
+    margin: 12px;
+    font-size: 13px;
+  }
+
+  /* Card 32 Small Mobile */
+  .card32-players {
+    padding: 0 12px;
+  }
+
+  .card32-player-row {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .card32-player-name {
+    font-size: 13px;
+  }
+
+  .card32-trophy {
+    min-width: auto;
+    justify-content: center;
+  }
+
+  .card32-card {
+    width: 25px;
+    height: 35px;
+  }
+
+  .card32-winner-section {
+    margin: 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .search-casino-result-container {
+    padding: 8px;
+  }
+
+  .search-controls {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .search-input,
+  .search-select {
+    padding: 10px 8px;
+  }
+
+  .search-button {
+    padding: 10px 16px;
+  }
+
+  .game-result-container {
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .result-header h2 {
+    font-size: 14px;
+  }
+
+  .result-round-id {
+    font-size: 11px;
+    padding: 5px;
+  }
+
+  .card-container,
+  .three-card-container {
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .single-card-container {
+    padding: 10px;
+  }
+
+  .card-image {
+    width: 40px;
+    height: 56px;
+  }
+
+  .card-label {
+    font-size: 11px;
+  }
+
+  .winner-icon {
+    left: -18px;
+    font-size: 16px;
+  }
+
+  .result-info {
+    margin: 0 10px 10px;
+    padding: 8px;
+  }
+
+  .info-row span:first-child,
+  .info-row span:last-child {
+    font-size: 11px;
+  }
+
+  /* Teen Patti Extra Small Mobile */
+  .teenpatti-players {
+    padding: 0 10px;
+  }
+
+  .player-row {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .player-label {
+    font-size: 12px;
+  }
+
+  .teenpatti-card {
+    width: 30px;
+    height: 42px;
+  }
+
+  .teenpatti-details {
+    margin: 8px 10px 10px;
+    padding: 8px;
+  }
+
+  .detail-row {
+    font-size: 12px;
+  }
+
+  /* Andar Bahar Extra Small Mobile */
+  .ab-container {
+    padding: 0 10px;
+  }
+
+  .ab-card {
+    width: 25px;
+    height: 35px;
+  }
+
+  .ab-winner {
+    margin: 10px;
+    font-size: 12px;
+  }
+
+  /* Card 32 Extra Small Mobile */
+  .card32-players {
+    padding: 0 10px;
+  }
+
+  .card32-player-row {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .card32-player-name {
+    font-size: 12px;
+  }
+
+  .card32-trophy {
+    min-width: auto;
+    justify-content: center;
+  }
+
+  .card32-card {
+    width: 20px;
+    height: 28px;
+  }
+
+  .card32-winner-section {
+    margin: 10px;
+    font-size: 13px;
+  }
+}

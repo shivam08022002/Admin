@@ -4,9 +4,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 
 const ExportButton = ({ onClick, disabled = false }) => {
+    const handleClick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (!disabled && onClick) {
+            console.log('Export button clicked');
+            onClick();
+        } else {
+            console.log('Export button disabled or no onClick handler');
+        }
+    };
+
     const buttonStyle = {
         backgroundColor: 'transparent',
-        color: '1fabb5',
+        color: '#1fabb5',
         border: 'none',
         borderRadius: '2px',
         padding: '8px 12px',
@@ -19,6 +31,7 @@ const ExportButton = ({ onClick, disabled = false }) => {
         opacity: disabled ? 0.6 : 1,
         transition: 'opacity 0.2s ease',
         minWidth: 'fit-content',
+        userSelect: 'none',
     };
 
     const iconStyle = {
@@ -49,9 +62,10 @@ const ExportButton = ({ onClick, disabled = false }) => {
             <button
                 className="export-button"
                 style={buttonStyle}
-                onClick={onClick}
+                onClick={handleClick}
                 disabled={disabled}
                 title="Export to PDF"
+                type="button"
             >
                 <FontAwesomeIcon icon={faFilePdf} style={iconStyle} />
                 <span className="export-button-text" style={textStyle}>Export PDF</span>

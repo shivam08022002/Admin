@@ -116,8 +116,8 @@ const AgentTable = ({ agents, user, block, edit, handleImmediateChildren, change
                     col4: row.balance.toFixed(2),
                     col5: row.share,
                     col6: user.share,
-                    col7: row.icasinoEnabled ? 'Yes' : 'No',
-                    col8: row.icasinoShare !== undefined ? row.icasinoShare : '-'
+                    col7: row.iCasinoEnabled ? 'Yes' : 'No',
+                    col8: row.iCasinoShare || 0
                 }
             )
         ));

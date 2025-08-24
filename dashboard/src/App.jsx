@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { store } from './store';
 import { getTheme } from './Components/theme';
-import { httpHelpers } from "./services/httpHelpers";
 import Layout from './Components/Layout/Layout';
 import Login from './Components/Login/Login';
 import ProtectedRoute from './Components/ProtectedRoute';
@@ -24,6 +23,15 @@ import CricRegister from './Components/Register/Register';
 import Update from './Components/ActionsBtn/Update';
 import CricChangeUserPassword from './Components/ActionsBtn/CricChangeUserPassword';
 import Change_Password from './Components/ChangePassword/Change_Password';
+import LiveCasinoPage from './Components/Casino/LiveCasino/LiveCasino';
+import VirtualCasino from './Components/Casino/VirtualCasino/VirtualCasino';
+import SearchCasinoResult from './Components/Casino/SearchCasinoResult/SearchCasinoResult';
+import ScrollToTop from './Components/ScrollToTop';
+// Import Ledger Components
+import CompanyLenDen from './Components/Ledgers/MyLedger/CompanyLenDen';
+import ProfitAndLoss from './Components/Ledgers/ProfitLoss/ProfitAndLoss';
+import EntityStatement from './Components/Ledgers/CoinHistory/EntityStatement';
+import CollectionReport from './Components/Ledgers/LenaAurDena/CollectionReport';
 
 function App(props) {
   const [darkMode, setDarkMode] = useState(false);
@@ -45,12 +53,8 @@ function App(props) {
 function AppRoutes({ role, logout, darkMode, setDarkMode }) {
 
   const [supportedSports, setSupportedSports] = useState();
-  const [roleState, setRole] = useState(role || TokenService.getRole() || "Admin");
+  const [roleState] = useState(role || TokenService.getRole() || "Admin");
   const [cricketSupported, setCricketSupported] = useState();
-  const [indianCasinoSupported, setIndianCasinoSupported] = useState();
-  const [internationalCasinoSupported, setInternationalCasinoSupported] = useState();
-  const [virtualCasinoSupported, setVirtualCasinoSupported] = useState();
-  const [open, setOpen] = useState(false); 
 
   const { user: currentUser } = useSelector((state) => state.auth); // ✅ now inside Provider
   const navigate = useNavigate();
@@ -71,32 +75,12 @@ function AppRoutes({ role, logout, darkMode, setDarkMode }) {
     }
   }, [currentUser, navigate]);
 
-  const api = httpHelpers();
-
-  const fetchSupportedSports = () => {
-    api.get(`beta/getSupportedSports`)
-      .then(res => setSupportedSports(res?.data || null))
-      .catch(err => {
-        if (err?.data?.status === 401 || err?.response?.status === 401) logout();
-      });
-  };
-
-  
-    useEffect(() => {
+  useEffect(() => {
       if (supportedSports) {
         supportedSports.forEach(sport => {
           switch (sport.sportType) {
             case CRICKET:
               setCricketSupported(sport.status === SPORTS_STATUS_UNBLOCKED);
-              break;
-            case INDIAN_CASINO:
-              setIndianCasinoSupported(sport.status === SPORTS_STATUS_UNBLOCKED);
-              break;
-            case VIRTUAL_CASINO:
-              setVirtualCasinoSupported(sport.status === SPORTS_STATUS_UNBLOCKED);
-              break;
-            case INTERNATIONAL_CASINO:
-              setInternationalCasinoSupported(sport.status === SPORTS_STATUS_UNBLOCKED);
               break;
             default:
               break;
@@ -106,57 +90,68 @@ function AppRoutes({ role, logout, darkMode, setDarkMode }) {
     }, [supportedSports]);    
 
   return (
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/dashboard" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><Dashboard /></Layout></ProtectedRoute>} />
-      <Route path="/live-matches" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><LiveMatches role={roleState} logout={logout} /></Layout></ProtectedRoute>} />
-      <Route path="/complete-matches" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><LiveMatches role={roleState} logout={logout} /></Layout></ProtectedRoute>} />
-      <Route path="/matchscreen/:sport/:id/:title"element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}> <MatchScreenCricket role={roleState} logout={logout} open={open} cricketSupported={cricketSupported} /></Layout></ProtectedRoute>} />
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Login />} />
+      <Route path="/dashboard" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><Dashboard /></Layout></ProtectedRoute>} />
+      <Route path="/live-matches" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><LiveMatches role={roleState} logout={logout} /></Layout></ProtectedRoute>} />
+      <Route path="/complete-matches" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><LiveMatches role={roleState} logout={logout} /></Layout></ProtectedRoute>} />
+      <Route path="/matchscreen/:sport/:id/:title"element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}> <MatchScreenCricket role={roleState} logout={logout} cricketSupported={cricketSupported} /></Layout></ProtectedRoute>} />
+
+      {/* Casino routes */}
+      <Route path="/livecasino" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><LiveCasinoPage role={roleState} logout={logout} /></Layout></ProtectedRoute>} />
+      <Route path="/virtualcasino" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><VirtualCasino role={roleState} logout={logout} /></Layout></ProtectedRoute>} />
+      <Route path="/searchcasinoresult" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><SearchCasinoResult role={roleState} logout={logout} /></Layout></ProtectedRoute>} />
 
       {/* Users and Agents routes */}
-      <Route path="/users/clients" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><MyClients role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
-      <Route path="/users/sm" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><MyDownlines role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
-      <Route path="/users/sc" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><MyDownlines role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
-      <Route path="/users/sst" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><MyDownlines role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
-      <Route path="/users/stockist" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><MyDownlines role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
-      <Route path="/users/agents" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><MyDownlines role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/users/clients" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><MyClients role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/clients" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><MyClients role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/users/create" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><CricRegister role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/users/sm" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><MyDownlines role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/users/sc" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><MyDownlines role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/users/sst" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><MyDownlines role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/users/stockist" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><MyDownlines role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/users/agents" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><MyDownlines role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/showagent" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><MyDownlines role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/showst" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><MyDownlines role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/showsst" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><MyDownlines role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/showsc" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><MyDownlines role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/showsm" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><MyDownlines role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
 
       {/* Registration routes */}
-      <Route path="/register/user" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><CricRegister role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
-      <Route path="/register/sm" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><CricRegister role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
-      <Route path="/register/sc" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><CricRegister role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
-      <Route path="/register/sst" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><CricRegister role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
-      <Route path="/register/stockist" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><CricRegister role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
-      <Route path="/register/agent" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><CricRegister role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/register/user" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><CricRegister role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/register/sm" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><CricRegister role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/register/sc" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><CricRegister role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/register/sst" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><CricRegister role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/register/stockist" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><CricRegister role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/register/agent" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><CricRegister role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
 
       {/* User management routes */}
-      <Route path="/updateuser" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><Update role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
-      <Route path="/changeuserpassword" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><CricChangeUserPassword role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
-      <Route path="/change-password" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><Change_Password role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/updateuser" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><Update role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/changeuserpassword" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><CricChangeUserPassword role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/change-password" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><Change_Password role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
       
       {/* Ledgers routes */}
-      <Route path="/ledgers/my-ledgers" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><div style={{padding: '20px'}}><h2>My Ledgers</h2><p>Ledger functionality coming soon...</p></div></Layout></ProtectedRoute>}/>
-      <Route path="/ledgers/lena-dena" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><div style={{padding: '20px'}}><h2>Lena aur Dena</h2><p>Lena aur Dena functionality coming soon...</p></div></Layout></ProtectedRoute>}/>
+      <Route path="/ledgers/my-ledger" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><CompanyLenDen role={roleState} logout={logout} /></Layout></ProtectedRoute>}/>
+      <Route path="/ledgers/profit-loss" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><ProfitAndLoss role={roleState} logout={logout} /></Layout></ProtectedRoute>}/>
+      <Route path="/ledgers/coin-history" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><EntityStatement role={roleState} logout={logout} /></Layout></ProtectedRoute>}/>
+      <Route path="/ledgers/lena-dena" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><CollectionReport role={roleState} logout={logout} /></Layout></ProtectedRoute>}/>
       
       {/* Report route */}
-      <Route path="/report" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><div style={{padding: '20px'}}><h2>Report</h2><p>Report functionality coming soon...</p></div></Layout></ProtectedRoute>}/>
+      <Route path="/report" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><div style={{padding: '20px'}}><h2>Report</h2><p>Report functionality coming soon...</p></div></Layout></ProtectedRoute>}/>
       
       {/* Dead Users route */}
-      <Route path="/dead-users" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><div style={{padding: '20px'}}><h2>Dead Users</h2><p>Dead Users functionality coming soon...</p></div></Layout></ProtectedRoute>}/>
-      
-      {/* Profit & Loss route */}
-      <Route path="/profit-loss" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><div style={{padding: '20px'}}><h2>Profit & Loss</h2><p>Profit & Loss functionality coming soon...</p></div></Layout></ProtectedRoute>}/>
-      
-      {/* Coin History route */}
-      <Route path="/coin-history" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><div style={{padding: '20px'}}><h2>Coin History</h2><p>Coin History functionality coming soon...</p></div></Layout></ProtectedRoute>}/>
+      <Route path="/dead-users" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><div style={{padding: '20px'}}><h2>Dead Users</h2><p>Dead Users functionality coming soon...</p></div></Layout></ProtectedRoute>}/>
       
       {/* Other routes same as before */}
-      <Route path="/block-market" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><BlockMarket role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
-      <Route path="/search-user" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><SearchUser role={roleState} logout={logout} /></Layout></ProtectedRoute>}/>
-      <Route path="/commissionlimits" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><CommisionLimits role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
-      <Route path="/settings" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode}><Settings role={roleState} logout={logout} /></Layout></ProtectedRoute>} />
+      <Route path="/block-market" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><BlockMarket role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/search-user" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><SearchUser role={roleState} logout={logout} /></Layout></ProtectedRoute>}/>
+      <Route path="/commissionlimits" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><CommisionLimits role={roleState} logout={logout}/></Layout></ProtectedRoute>}/>
+      <Route path="/settings" element={<ProtectedRoute><Layout darkMode={darkMode} setDarkMode={setDarkMode} logout={logout}><Settings role={roleState} logout={logout} /></Layout></ProtectedRoute>} />
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
-    </Routes>
+      </Routes>
+    </>
   );
 }
 

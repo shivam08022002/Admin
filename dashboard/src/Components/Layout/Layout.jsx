@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTheme, useMediaQuery } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../Sidebar/Sidebar';
 import Header from '../Header/Header';
 import CustomBreadcrumbs from '../Breadcrumbs';
+import Marquee from '../Marquee';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 
-const Layout = ({ children, darkMode, setDarkMode }) => {
+const Layout = ({ children, darkMode, setDarkMode, logout }) => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const themeMUI = useTheme();
@@ -70,7 +71,7 @@ const Layout = ({ children, darkMode, setDarkMode }) => {
 
       {/* ✅ Fixed header aligned with sidebar */}
       <div style={{
-        height: 70,
+        height: 60,
         background: theme.palette.background.paper,
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
         zIndex: 1301,
@@ -92,8 +93,11 @@ const Layout = ({ children, darkMode, setDarkMode }) => {
         />
       </div>
 
-      {/* ✅ Content below header */}
-      <div style={{ display: 'flex', minHeight: '100vh', marginTop: 70 }}>
+      {/* ✅ Marquee component */}
+      <Marquee logout={logout} />
+
+      {/* ✅ Content below header and marquee */}
+      <div style={{ display: 'flex', minHeight: '100vh', marginTop: 94 }}>
         <div style={{
           flex: 1,
           minWidth: 0,
@@ -105,7 +109,7 @@ const Layout = ({ children, darkMode, setDarkMode }) => {
             <div style={{ padding: '16px 24px 0 24px' }}>
               <CustomBreadcrumbs />
             </div>
-            {children || <Outlet />}
+            {children && React.isValidElement(children) ? React.cloneElement(children, { isSmallScreen: isMobile }) : <Outlet context={{ isSmallScreen: isMobile }} />}
           </div>
         </div>
       </div>

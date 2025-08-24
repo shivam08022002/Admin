@@ -27,6 +27,7 @@
     justify-content: space-between;
     padding: 14px 16px;
     border: 1px solid #e0e0e0;
+    border-left: 4px solid #1a8f98;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
     cursor: pointer;
@@ -80,6 +81,14 @@
     flex: 1;
     min-width: 0;
     text-align: left;
+}
+
+.tv-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    color: #1a8f98;
+    flex-shrink: 0;
 }
 
 .remaining-match-id {
@@ -216,6 +225,12 @@
         font-size: 14px;
     }
 
+    .tv-icon {
+        width: 14px;
+        height: 14px;
+        margin-left: 6px;
+    }
+
     .remaining-match-id {
         font-size: 10px;
         padding: 1px 4px;
@@ -286,6 +301,12 @@
         font-size: 13px;
     }
 
+    .tv-icon {
+        width: 12px;
+        height: 12px;
+        margin-left: 4px;
+    }
+
     .remaining-match-details-section {
         flex-direction: column;
         align-items: flex-start;
@@ -307,8 +328,8 @@
     }
 
     .remaining-live-badge {
-        font-size: 9px;
-        padding: 2px 5px;
+        font-size: 8px;
+        padding: 1px 4px;
     }
 
     .live-dot {

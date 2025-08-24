@@ -9,13 +9,12 @@ import {
   IconButton,
   useTheme,
   useMediaQuery,
-  Drawer,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import MenuButtonSvg from '../../assets/MenuButtonSvg';
-import { FaSearch, FaSun, FaMoon } from 'react-icons/fa';
 import TokenService from '../../services/token-service';
 import { httpHelpers } from '../../services/httpHelpers';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -49,7 +48,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Header = ({ darkMode, toggleDarkMode, handleDrawerToggle }) => {
+const Header = ({ handleDrawerToggle }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [balance, setBalance] = useState(0);
@@ -101,21 +100,36 @@ const Header = ({ darkMode, toggleDarkMode, handleDrawerToggle }) => {
         transition: 'backdrop-filter 0.3s, background-color 0.3s',
       }}
     >
-      <Toolbar variant="dense" sx={{ fontFamily: 'Open Sans, Arial, sans-serif', minHeight: 70, pl: 1, pr: 1 }}>
+      <Toolbar variant="dense" sx={{ fontFamily: 'Open Sans, Arial, sans-serif', minHeight: 60, pl: 1, pr: 1}}>
         {/* Menu button and search should render after sidebar width */}
         <Box sx={{ width: { xs: 0, md: 0, lg: 0 } }} />
-        {/* Menu button (for mobile) */}
-        {isMobile && (
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerToggle}
-            edge="start"
-            sx={{ mr: 0, pl: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-          >
-            <MenuButtonSvg style={{ color: 'currentColor', width: 28, height: 28 }} />
-          </IconButton>
-        )}
+                 {/* Menu button (for mobile) */}
+         {isMobile && (
+           <IconButton
+             color="inherit"
+             aria-label="open drawer"
+             onClick={handleDrawerToggle}
+             edge="start"
+             sx={{ 
+               mr: 0, 
+               ml: 1,
+               pl: 1, 
+               display: 'flex', 
+               alignItems: 'center', 
+               justifyContent: 'center',
+               backgroundColor: '#3F4D67',
+               borderRadius: '4px',
+               width: '35px',
+               height: '35px',
+               padding: '0px',
+               '&:hover': {
+                backgroundColor: '#3F4D67'
+              }
+             }}
+           >
+             <MenuButtonSvg style={{ color: '#ffffff', width: 25, height: 25 }} />
+           </IconButton>
+         )}
 
         {/* Search removed for all views */}
 
@@ -128,6 +142,7 @@ const Header = ({ darkMode, toggleDarkMode, handleDrawerToggle }) => {
               backgroundColor: theme.palette.mode === 'dark' ? '#222' : '#f0f0f0',
               px: 1,
               py: 1,
+              mr: 2,
               borderRadius: 1,
               fontWeight: 500,
               fontFamily: 'Open Sans, Arial, sans-serif',
@@ -148,22 +163,29 @@ const Header = ({ darkMode, toggleDarkMode, handleDrawerToggle }) => {
           >
             {darkMode ? <FaSun /> : <FaMoon />}
           </IconButton> */}
-          <Button
-            variant="contained"
-            onClick={() => {
-              TokenService.removeUser();
-              window.location.href = '/';
-            }}
-            sx={{
-              ml: { xs: 0, sm: 1 },
-              backgroundColor: '#3F4D67',
-              color: '#fff',
-              '&:hover': { backgroundColor: '#32405a' },
-              fontWeight: 600,
-            }}
-          >
-            Logout
-          </Button>
+                     <Button
+             variant="contained"
+             onClick={() => {
+               TokenService.removeUser();
+               window.location.href = '/';
+             }}
+             startIcon={<LogoutIcon />}
+             sx={{
+               ml: { xs: 0, sm: 1 },
+               backgroundColor: '#ff0000',
+               color: '#fff',
+               fontWeight: 600,
+               padding: '7px 14px',
+               textTransform: 'none',
+               boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+               '&:hover': { 
+                 backgroundColor: '#cc0000',
+                 boxShadow: '0 4px 8px rgba(0,0,0,0.3)'
+               },
+             }}
+           >
+             Logout
+           </Button>
         </Box>
       </Toolbar>
     </AppBar>

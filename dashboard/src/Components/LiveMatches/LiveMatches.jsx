@@ -26,8 +26,11 @@ export default function LiveMatches({ role, logout, isSmallScreen }) {
     const api = httpHelpers();
     const [matches, setMatches] = useState(null);
     const [noMatches, setNoMatches] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const fetchMatches = () => {
+        setIsLoading(true);
+        setNoMatches(false);
         api
             .get(`${getMatches}${sportType}&matchStatus=${matchStatus}`)
             .then(res => {
@@ -48,6 +51,10 @@ export default function LiveMatches({ role, logout, isSmallScreen }) {
                 if (err?.data?.status === 401 || err?.response?.status === 401) {
                     logout();
                 }
+                setNoMatches(true);
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
     };
 
@@ -103,7 +110,7 @@ export default function LiveMatches({ role, logout, isSmallScreen }) {
 
     return (
         <div>
-            {noMatches && (
+            {!isLoading && noMatches && (
                 <div>
                     <label style={{ color: "#48aaad", fontSize: "30px" }}>
                         {!liveMatches ? "No Completed Matches!" : "No Live Matches!"}
@@ -113,7 +120,7 @@ export default function LiveMatches({ role, logout, isSmallScreen }) {
 
             {/* Only show tabs for live matches page */}
             {liveMatches && (
-                <div className="match-tabs">
+                <div className={`match-tabs ${matchStatus === MATCH_STATUS_LIVE ? "tab-1" : "tab-2"}`}>
                     <button
                         className={`tab-button ${matchStatus === MATCH_STATUS_LIVE ? "active-tab" : ""}`}
                         onClick={(e) => inPlayMatches(e)}
@@ -129,8 +136,25 @@ export default function LiveMatches({ role, logout, isSmallScreen }) {
                 </div>
             )}
 
+            {isLoading && (
+                <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'center', 
+                    alignItems: 'center', 
+                    minHeight: '200px',
+                    color: "#48aaad", 
+                    fontSize: isSmallScreen ? "16px" : "20px",
+                    fontWeight: "500",
+                    textAlign: 'center',
+                    padding: '20px',
+                    marginTop: '20px'
+                }}>
+                    {liveMatches ? "Loading Live Matches..." : "Loading Completed Matches..."}
+                </div>
+            )}
+
             <div className="App" style={{ marginTop: "10px", marginLeft: "5px", marginRight: "5px", background: "white" }}>
-                {matches && (
+                {!isLoading && matches && (
                     <MatchesTable
                         columns={liveMatches ? allMatches : completedMatches}
                         data={matches}
